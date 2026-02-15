@@ -1,0 +1,512 @@
+﻿
+[1;97m=== SPAWN ===[0m
+Encounter: enc_v0_baseline_01  Map: map_12x12_arena_01  Seed: 135
+Budget: 40  UnitCap: 10  DesiredEnemies: 7  Spawned: 7  BudgetLeft: 4
+MaxSameTemplate: 3
+[92mpc_0 Soldier (Tank)[0m         HP=70 MP=12 SPD=8 @(1,10)
+[92mpc_1 Wizard (Fire)[0m          HP=40 MP=36 SPD=10 @(2,10)
+[92mpc_2 Cleric (Grey)[0m          HP=60 MP=20 SPD=8 @(1,11)
+[92mpc_3 Marksman (Crossbow)[0m    HP=50 MP=12 SPD=16 @(2,11)
+[94men_0 Tiny Pteronura[0m         HP=50 MP=12 SPD=14 @(10,1)
+[94men_1 Nascent Backahast[0m      HP=40 MP=32 SPD=10 @(11,1)
+[94men_2 Tiny Pteronura[0m         HP=50 MP=12 SPD=14 @(10,2)
+[94men_3 Juvenile Hellbender[0m    HP=60 MP=20 SPD=10 @(9,1)
+[94men_4 Terrapinnikin (1000y)[0m  HP=80 MP=12 SPD=6 @(8,0)
+[94men_5 Kelpie Praestigii[0m      HP=50 MP=24 SPD=12 @(10,0)
+[94men_6 Juvenile Hellbender[0m    HP=60 MP=20 SPD=10 @(8,2)
+
+[1;97m=== BATTLE ===[0m
+[92mpc_3 Marksman (Crossbow)[0m moves (2,11) -> (6,11)
+[92mpc_3 Marksman (Crossbow)[0m waits.
+  [90m[Budget spent: 80 / 100][0m
+[94men_0 Tiny Pteronura[0m waits.
+  [90m[Budget spent: 0 / 100][0m
+[94men_2 Tiny Pteronura[0m moves (10,2) -> (7,3)
+[94men_2 Tiny Pteronura[0m waits.
+  [90m[Budget spent: 80 / 100][0m
+[94men_5 Kelpie Praestigii[0m moves (10,0) -> (9,0)
+[94men_5 Kelpie Praestigii[0m waits.
+  [90m[Budget spent: 20 / 100][0m
+[92mpc_3 Marksman (Crossbow)[0m moves (6,11) -> (7,8)
+[92mpc_3 Marksman (Crossbow)[0m waits.
+  [90m[Budget spent: 80 / 120][0m
+[94men_0 Tiny Pteronura[0m moves (10,1) -> (8,3)
+[94men_0 Tiny Pteronura[0m acts: ab_throw_pebble -> [92mpc_3 Marksman (Crossbow)[0m
+[94men_0 Tiny Pteronura[0m HIT [92mpc_3 Marksman (Crossbow)[0m 50->48 (-2) via none
+[94men_0 Tiny Pteronura[0m waits.
+  [90m[Budget spent: 140 / 160][0m
+[94men_2 Tiny Pteronura[0m acts: ab_throw_pebble -> [92mpc_3 Marksman (Crossbow)[0m
+[94men_2 Tiny Pteronura[0m uses ab_throw_pebble on [92mpc_3 Marksman (Crossbow)[0m => MISS
+[94men_2 Tiny Pteronura[0m acts: ab_throw_pebble -> [92mpc_3 Marksman (Crossbow)[0m
+[94men_2 Tiny Pteronura[0m uses ab_throw_pebble on [92mpc_3 Marksman (Crossbow)[0m => MISS
+  [90m[Budget spent: 120 / 120][0m
+[94men_1 Nascent Backahast[0m moves (11,1) -> (9,3)
+[94men_1 Nascent Backahast[0m waits.
+  [90m[Budget spent: 80 / 100][0m
+[94men_3 Juvenile Hellbender[0m moves (9,1) -> (7,2)
+[94men_3 Juvenile Hellbender[0m moves (7,2) -> (7,4)
+  [90m[Budget spent: 100 / 100][0m
+[94men_6 Juvenile Hellbender[0m moves (8,2) -> (6,4)
+[94men_6 Juvenile Hellbender[0m waits.
+  [90m[Budget spent: 80 / 100][0m
+[92mpc_1 Wizard (Fire)[0m acts: ab_focus -> [92mpc_1 Wizard (Fire)[0m
+  status: [92mpc_1 Wizard (Fire)[0m gains st_focused (dur=4)
+[92mpc_1 Wizard (Fire)[0m waits.
+  [90m[Budget spent: 50 / 100][0m
+[92mpc_3 Marksman (Crossbow)[0m acts: ab_shoot_xbow -> [94men_3 Juvenile Hellbender[0m
+[92mpc_3 Marksman (Crossbow)[0m HIT [94men_3 Juvenile Hellbender[0m 60->50 (-10) via none
+[92mpc_3 Marksman (Crossbow)[0m acts: ab_shoot_xbow -> [94men_3 Juvenile Hellbender[0m
+[92mpc_3 Marksman (Crossbow)[0m CRIT [38;5;218men_3 Juvenile Hellbender[0m 50->35 (-15) via none
+[92mpc_3 Marksman (Crossbow)[0m waits.
+  [90m[Budget spent: 120 / 140][0m
+[94men_5 Kelpie Praestigii[0m moves (9,0) -> (7,2)
+[94men_5 Kelpie Praestigii[0m acts: ab_water_splash_los -> [92mpc_3 Marksman (Crossbow)[0m
+[94men_5 Kelpie Praestigii[0m HIT [93mpc_3 Marksman (Crossbow)[0m 48->32 (-16) via water
+[94men_5 Kelpie Praestigii[0m waits.
+  [90m[Budget spent: 145 / 160][0m
+[92mpc_0 Soldier (Tank)[0m moves (1,10) -> (4,9)
+[92mpc_0 Soldier (Tank)[0m waits.
+  [90m[Budget spent: 80 / 100][0m
+[92mpc_2 Cleric (Grey)[0m acts: ab_heal -> [93mpc_3 Marksman (Crossbow)[0m
+[92mpc_2 Cleric (Grey)[0m uses ab_heal on [92mpc_3 Marksman (Crossbow)[0m HEAL 32->50
+[92mpc_2 Cleric (Grey)[0m waits.
+  [90m[Budget spent: 70 / 100][0m
+[94men_0 Tiny Pteronura[0m acts: ab_throw_pebble -> [92mpc_3 Marksman (Crossbow)[0m
+[94men_0 Tiny Pteronura[0m uses ab_throw_pebble on [92mpc_3 Marksman (Crossbow)[0m => MISS
+[94men_0 Tiny Pteronura[0m acts: ab_throw_pebble -> [92mpc_3 Marksman (Crossbow)[0m
+[94men_0 Tiny Pteronura[0m CRIT [92mpc_3 Marksman (Crossbow)[0m 50->47 (-3) via none
+  [90m[Budget spent: 120 / 120][0m
+[92mpc_3 Marksman (Crossbow)[0m acts: ab_shoot_xbow -> [38;5;218men_3 Juvenile Hellbender[0m
+[92mpc_3 Marksman (Crossbow)[0m HIT [38;5;218men_3 Juvenile Hellbender[0m 35->25 (-10) via none
+[92mpc_3 Marksman (Crossbow)[0m acts: ab_shoot_xbow -> [38;5;218men_3 Juvenile Hellbender[0m
+[92mpc_3 Marksman (Crossbow)[0m uses ab_shoot_xbow on [38;5;218men_3 Juvenile Hellbender[0m => MISS
+  [90m[Budget spent: 120 / 120][0m
+[94men_1 Nascent Backahast[0m moves (9,3) -> (7,5)
+[94men_1 Nascent Backahast[0m waits.
+  [90m[Budget spent: 80 / 120][0m
+[94men_6 Juvenile Hellbender[0m moves (6,4) -> (7,7)
+[94men_6 Juvenile Hellbender[0m waits.
+  [90m[Budget spent: 80 / 120][0m
+[92mpc_1 Wizard (Fire)[0m moves (2,10) -> (6,10)
+[92mpc_1 Wizard (Fire)[0m acts: ab_firebolt -> [94men_6 Juvenile Hellbender[0m
+[92mpc_1 Wizard (Fire)[0m HIT [38;5;218men_6 Juvenile Hellbender[0m 60->36 (-24) via fire
+  status: [38;5;218men_6 Juvenile Hellbender[0m gains st_burning (dur=2)
+[92mpc_1 Wizard (Fire)[0m waits.
+  [90m[Budget spent: 145 / 150][0m
+[94men_5 Kelpie Praestigii[0m acts: ab_water_splash_los -> [92mpc_3 Marksman (Crossbow)[0m
+[94men_5 Kelpie Praestigii[0m HIT [93mpc_3 Marksman (Crossbow)[0m 47->31 (-16) via water
+[94men_5 Kelpie Praestigii[0m waits.
+  [90m[Budget spent: 65 / 115][0m
+[94men_4 Terrapinnikin (1000y)[0m moves (8,0) -> (7,1)
+[94men_4 Terrapinnikin (1000y)[0m waits.
+  [90m[Budget spent: 40 / 100][0m
+[94men_2 Tiny Pteronura[0m acts: ab_throw_pebble -> [93mpc_3 Marksman (Crossbow)[0m
+[94men_2 Tiny Pteronura[0m HIT [93mpc_3 Marksman (Crossbow)[0m 31->29 (-2) via none
+[94men_2 Tiny Pteronura[0m waits.
+  [90m[Budget spent: 60 / 100][0m
+[92mpc_0 Soldier (Tank)[0m moves (4,9) -> (6,7)
+[92mpc_0 Soldier (Tank)[0m waits.
+  [90m[Budget spent: 80 / 120][0m
+[92mpc_2 Cleric (Grey)[0m acts: ab_heal -> [93mpc_3 Marksman (Crossbow)[0m
+[92mpc_2 Cleric (Grey)[0m uses ab_heal on [92mpc_3 Marksman (Crossbow)[0m HEAL 29->50
+[92mpc_2 Cleric (Grey)[0m waits.
+  [90m[Budget spent: 70 / 130][0m
+[94men_1 Nascent Backahast[0m acts: ab_wind_nip_los -> [92mpc_0 Soldier (Tank)[0m
+[94men_1 Nascent Backahast[0m HIT [92mpc_0 Soldier (Tank)[0m 70->56 (-14) via wind
+[94men_1 Nascent Backahast[0m acts: ab_wind_nip_los -> [92mpc_0 Soldier (Tank)[0m
+[94men_1 Nascent Backahast[0m HIT [93mpc_0 Soldier (Tank)[0m 56->42 (-14) via wind
+[94men_1 Nascent Backahast[0m waits.
+  [90m[Budget spent: 130 / 140][0m
+DOT fire: [38;5;218men_6 Juvenile Hellbender[0m 36->31 (-5)
+[38;5;218men_6 Juvenile Hellbender[0m acts: ab_attack_basic -> [93mpc_0 Soldier (Tank)[0m
+[38;5;218men_6 Juvenile Hellbender[0m HIT [93mpc_0 Soldier (Tank)[0m 42->33 (-9) via none
+[38;5;218men_6 Juvenile Hellbender[0m acts: ab_attack_basic -> [93mpc_0 Soldier (Tank)[0m
+[38;5;218men_6 Juvenile Hellbender[0m HIT [93mpc_0 Soldier (Tank)[0m 33->24 (-9) via none
+[38;5;218men_6 Juvenile Hellbender[0m waits.
+  [90m[Budget spent: 120 / 140][0m
+[92mpc_1 Wizard (Fire)[0m acts: ab_firebolt -> [38;5;218men_6 Juvenile Hellbender[0m
+[92mpc_1 Wizard (Fire)[0m HIT [38;5;160men_6 Juvenile Hellbender[0m 31->7 (-24) via fire
+  status: [38;5;160men_6 Juvenile Hellbender[0m gains st_burning (dur=2)
+[92mpc_1 Wizard (Fire)[0m waits.
+  [90m[Budget spent: 65 / 105][0m
+[94men_5 Kelpie Praestigii[0m acts: ab_water_splash_los -> [93mpc_0 Soldier (Tank)[0m
+[94men_5 Kelpie Praestigii[0m HIT [91mpc_0 Soldier (Tank)[0m 24->10 (-14) via water
+[94men_5 Kelpie Praestigii[0m acts: ab_water_splash_los -> [91mpc_0 Soldier (Tank)[0m
+[94men_5 Kelpie Praestigii[0m uses ab_water_splash_los on [91mpc_0 Soldier (Tank)[0m => MISS
+[94men_5 Kelpie Praestigii[0m waits.
+  [90m[Budget spent: 130 / 150][0m
+[94men_0 Tiny Pteronura[0m acts: ab_throw_pebble -> [91mpc_0 Soldier (Tank)[0m
+[94men_0 Tiny Pteronura[0m HIT [91mpc_0 Soldier (Tank)[0m 10->9 (-1) via none
+[94men_0 Tiny Pteronura[0m waits.
+  [90m[Budget spent: 60 / 100][0m
+[94men_2 Tiny Pteronura[0m acts: ab_throw_pebble -> [91mpc_0 Soldier (Tank)[0m
+[94men_2 Tiny Pteronura[0m HIT [91mpc_0 Soldier (Tank)[0m 9->8 (-1) via none
+[94men_2 Tiny Pteronura[0m acts: ab_throw_pebble -> [91mpc_0 Soldier (Tank)[0m
+[94men_2 Tiny Pteronura[0m HIT [91mpc_0 Soldier (Tank)[0m 8->7 (-1) via none
+[94men_2 Tiny Pteronura[0m waits.
+  [90m[Budget spent: 120 / 140][0m
+[38;5;218men_3 Juvenile Hellbender[0m moves (7,4) -> (6,6)
+[38;5;218men_3 Juvenile Hellbender[0m waits.
+  [90m[Budget spent: 60 / 100][0m
+[92mpc_3 Marksman (Crossbow)[0m acts: ab_attack_basic -> [38;5;160men_6 Juvenile Hellbender[0m
+[92mpc_3 Marksman (Crossbow)[0m HIT [38;5;160men_6 Juvenile Hellbender[0m 7->0 (-12) via none
+[97;41m*** KO: [38;5;160men_6 Juvenile Hellbender[0m[0m
+[92mpc_3 Marksman (Crossbow)[0m waits.
+  [90m[Budget spent: 60 / 100][0m
+[94men_5 Kelpie Praestigii[0m acts: ab_slow_snare -> [91mpc_0 Soldier (Tank)[0m
+  status: [91mpc_0 Soldier (Tank)[0m gains st_slowed (dur=3)
+[94men_5 Kelpie Praestigii[0m waits.
+  [90m[Budget spent: 70 / 120][0m
+[94men_1 Nascent Backahast[0m acts: ab_wind_nip_los -> [91mpc_0 Soldier (Tank)[0m
+[94men_1 Nascent Backahast[0m HIT [91mpc_0 Soldier (Tank)[0m 7->0 (-14) via wind
+[97;41m*** KO: [91mpc_0 Soldier (Tank)[0m[0m
+[94men_1 Nascent Backahast[0m waits.
+  [90m[Budget spent: 65 / 110][0m
+[92mpc_1 Wizard (Fire)[0m acts: ab_firebolt -> [38;5;218men_3 Juvenile Hellbender[0m
+[92mpc_1 Wizard (Fire)[0m HIT [38;5;160men_3 Juvenile Hellbender[0m 25->1 (-24) via fire
+  status: [38;5;160men_3 Juvenile Hellbender[0m gains st_burning (dur=2)
+[92mpc_1 Wizard (Fire)[0m acts: ab_firebolt -> [38;5;160men_3 Juvenile Hellbender[0m
+[92mpc_1 Wizard (Fire)[0m HIT [38;5;160men_3 Juvenile Hellbender[0m 1->0 (-24) via fire
+[97;41m*** KO: [38;5;160men_3 Juvenile Hellbender[0m[0m
+  status: [38;5;160men_3 Juvenile Hellbender[0m gains st_burning (dur=2)
+[92mpc_1 Wizard (Fire)[0m waits.
+  [90m[Budget spent: 130 / 140][0m
+[92mpc_3 Marksman (Crossbow)[0m acts: ab_shoot_xbow -> [94men_1 Nascent Backahast[0m
+[92mpc_3 Marksman (Crossbow)[0m uses ab_shoot_xbow on [94men_1 Nascent Backahast[0m => MISS
+[92mpc_3 Marksman (Crossbow)[0m acts: ab_shoot_xbow -> [94men_1 Nascent Backahast[0m
+[92mpc_3 Marksman (Crossbow)[0m uses ab_shoot_xbow on [94men_1 Nascent Backahast[0m => MISS
+[92mpc_3 Marksman (Crossbow)[0m waits.
+  [90m[Budget spent: 120 / 140][0m
+[92mpc_2 Cleric (Grey)[0m moves (1,11) -> (5,11)
+[92mpc_2 Cleric (Grey)[0m moves (5,11) -> (7,9)
+  [90m[Budget spent: 160 / 160][0m
+[94men_0 Tiny Pteronura[0m acts: ab_throw_pebble -> [92mpc_3 Marksman (Crossbow)[0m
+[94men_0 Tiny Pteronura[0m HIT [92mpc_3 Marksman (Crossbow)[0m 50->48 (-2) via none
+[94men_0 Tiny Pteronura[0m acts: ab_throw_pebble -> [92mpc_3 Marksman (Crossbow)[0m
+[94men_0 Tiny Pteronura[0m HIT [92mpc_3 Marksman (Crossbow)[0m 48->46 (-2) via none
+[94men_0 Tiny Pteronura[0m waits.
+  [90m[Budget spent: 120 / 140][0m
+[94men_2 Tiny Pteronura[0m acts: ab_throw_pebble -> [92mpc_3 Marksman (Crossbow)[0m
+[94men_2 Tiny Pteronura[0m HIT [92mpc_3 Marksman (Crossbow)[0m 46->44 (-2) via none
+[94men_2 Tiny Pteronura[0m acts: ab_throw_pebble -> [92mpc_3 Marksman (Crossbow)[0m
+[94men_2 Tiny Pteronura[0m HIT [92mpc_3 Marksman (Crossbow)[0m 44->42 (-2) via none
+  [90m[Budget spent: 120 / 120][0m
+[94men_4 Terrapinnikin (1000y)[0m moves (7,1) -> (6,4)
+[94men_4 Terrapinnikin (1000y)[0m moves (6,4) -> (7,7)
+  [90m[Budget spent: 160 / 160][0m
+[94men_5 Kelpie Praestigii[0m acts: ab_slow_snare -> [92mpc_3 Marksman (Crossbow)[0m
+  status: [92mpc_3 Marksman (Crossbow)[0m gains st_slowed (dur=3)
+[94men_5 Kelpie Praestigii[0m acts: ab_slow_snare -> [92mpc_3 Marksman (Crossbow)[0m
+  status: [92mpc_3 Marksman (Crossbow)[0m gains st_slowed (dur=3)
+[94men_5 Kelpie Praestigii[0m waits.
+  [90m[Budget spent: 140 / 150][0m
+[92mpc_3 Marksman (Crossbow)[0m acts: ab_attack_basic -> [94men_4 Terrapinnikin (1000y)[0m
+[92mpc_3 Marksman (Crossbow)[0m HIT [94men_4 Terrapinnikin (1000y)[0m 80->72 (-8) via none
+[92mpc_3 Marksman (Crossbow)[0m acts: ab_attack_basic -> [94men_4 Terrapinnikin (1000y)[0m
+[92mpc_3 Marksman (Crossbow)[0m HIT [94men_4 Terrapinnikin (1000y)[0m 72->64 (-8) via none
+  [90m[Budget spent: 120 / 120][0m
+[94men_0 Tiny Pteronura[0m acts: ab_throw_pebble -> [92mpc_3 Marksman (Crossbow)[0m
+[94men_0 Tiny Pteronura[0m uses ab_throw_pebble on [92mpc_3 Marksman (Crossbow)[0m => MISS
+[94men_0 Tiny Pteronura[0m acts: ab_throw_pebble -> [92mpc_3 Marksman (Crossbow)[0m
+[94men_0 Tiny Pteronura[0m uses ab_throw_pebble on [92mpc_3 Marksman (Crossbow)[0m => MISS
+  [90m[Budget spent: 120 / 120][0m
+[94men_1 Nascent Backahast[0m acts: ab_wind_nip_los -> [92mpc_3 Marksman (Crossbow)[0m
+[94men_1 Nascent Backahast[0m HIT [93mpc_3 Marksman (Crossbow)[0m 42->26 (-16) via wind
+[94men_1 Nascent Backahast[0m acts: ab_wind_nip_los -> [93mpc_3 Marksman (Crossbow)[0m
+[94men_1 Nascent Backahast[0m HIT [91mpc_3 Marksman (Crossbow)[0m 26->10 (-16) via wind
+[94men_1 Nascent Backahast[0m waits.
+  [90m[Budget spent: 130 / 145][0m
+[92mpc_1 Wizard (Fire)[0m acts: ab_firebolt -> [94men_4 Terrapinnikin (1000y)[0m
+[92mpc_1 Wizard (Fire)[0m HIT [38;5;218men_4 Terrapinnikin (1000y)[0m 64->45 (-19) via fire
+  status: [38;5;218men_4 Terrapinnikin (1000y)[0m gains st_burning (dur=2)
+[92mpc_1 Wizard (Fire)[0m waits.
+  [90m[Budget spent: 65 / 110][0m
+[94men_5 Kelpie Praestigii[0m acts: ab_slow_snare -> [91mpc_3 Marksman (Crossbow)[0m
+  status: [91mpc_3 Marksman (Crossbow)[0m gains st_slowed (dur=3)
+[94men_5 Kelpie Praestigii[0m waits.
+  [90m[Budget spent: 70 / 110][0m
+[94men_1 Nascent Backahast[0m acts: ab_wind_nip_los -> [91mpc_3 Marksman (Crossbow)[0m
+[94men_1 Nascent Backahast[0m uses ab_wind_nip_los on [91mpc_3 Marksman (Crossbow)[0m => MISS
+[94men_1 Nascent Backahast[0m waits.
+  [90m[Budget spent: 65 / 115][0m
+[92mpc_1 Wizard (Fire)[0m moves (6,10) -> (6,7)
+[92mpc_1 Wizard (Fire)[0m acts: ab_attack_basic -> [38;5;218men_4 Terrapinnikin (1000y)[0m
+[92mpc_1 Wizard (Fire)[0m uses ab_attack_basic on [38;5;218men_4 Terrapinnikin (1000y)[0m => MISS
+[92mpc_1 Wizard (Fire)[0m waits.
+  [90m[Budget spent: 120 / 145][0m
+[94men_2 Tiny Pteronura[0m acts: ab_throw_pebble -> [92mpc_1 Wizard (Fire)[0m
+[94men_2 Tiny Pteronura[0m uses ab_throw_pebble on [92mpc_1 Wizard (Fire)[0m => MISS
+[94men_2 Tiny Pteronura[0m waits.
+  [90m[Budget spent: 60 / 100][0m
+[94men_5 Kelpie Praestigii[0m acts: ab_slow_snare -> [92mpc_1 Wizard (Fire)[0m
+  status: [92mpc_1 Wizard (Fire)[0m gains st_slowed (dur=3)
+[94men_5 Kelpie Praestigii[0m acts: ab_slow_snare -> [92mpc_1 Wizard (Fire)[0m
+  status: [92mpc_1 Wizard (Fire)[0m gains st_slowed (dur=3)
+  [90m[Budget spent: 140 / 140][0m
+[94men_0 Tiny Pteronura[0m acts: ab_throw_pebble -> [92mpc_1 Wizard (Fire)[0m
+[94men_0 Tiny Pteronura[0m HIT [92mpc_1 Wizard (Fire)[0m 40->36 (-4) via none
+[94men_0 Tiny Pteronura[0m waits.
+  [90m[Budget spent: 60 / 100][0m
+[94men_2 Tiny Pteronura[0m acts: ab_throw_pebble -> [92mpc_1 Wizard (Fire)[0m
+[94men_2 Tiny Pteronura[0m HIT [92mpc_1 Wizard (Fire)[0m 36->32 (-4) via none
+[94men_2 Tiny Pteronura[0m acts: ab_throw_pebble -> [92mpc_1 Wizard (Fire)[0m
+[94men_2 Tiny Pteronura[0m HIT [93mpc_1 Wizard (Fire)[0m 32->28 (-4) via none
+[94men_2 Tiny Pteronura[0m waits.
+  [90m[Budget spent: 120 / 140][0m
+[91mpc_3 Marksman (Crossbow)[0m acts: ab_attack_basic -> [38;5;218men_4 Terrapinnikin (1000y)[0m
+[91mpc_3 Marksman (Crossbow)[0m HIT [38;5;218men_4 Terrapinnikin (1000y)[0m 45->37 (-8) via none
+[91mpc_3 Marksman (Crossbow)[0m waits.
+  [90m[Budget spent: 60 / 100][0m
+[94men_1 Nascent Backahast[0m moves (7,5) -> (6,6)
+[94men_1 Nascent Backahast[0m waits.
+  [90m[Budget spent: 40 / 150][0m
+[92mpc_2 Cleric (Grey)[0m moves (7,9) -> (8,7)
+[92mpc_2 Cleric (Grey)[0m waits.
+  [90m[Budget spent: 60 / 100][0m
+[93mpc_1 Wizard (Fire)[0m acts: ab_attack_basic -> [94men_1 Nascent Backahast[0m
+[93mpc_1 Wizard (Fire)[0m HIT [38;5;218men_1 Nascent Backahast[0m 40->27 (-13) via none
+[93mpc_1 Wizard (Fire)[0m acts: ab_attack_basic -> [38;5;218men_1 Nascent Backahast[0m
+[93mpc_1 Wizard (Fire)[0m HIT [38;5;218men_1 Nascent Backahast[0m 27->14 (-13) via none
+[93mpc_1 Wizard (Fire)[0m waits.
+  [90m[Budget spent: 120 / 125][0m
+[94men_0 Tiny Pteronura[0m acts: ab_throw_pebble -> [92mpc_2 Cleric (Grey)[0m
+[94men_0 Tiny Pteronura[0m uses ab_throw_pebble on [92mpc_2 Cleric (Grey)[0m => MISS
+[94men_0 Tiny Pteronura[0m acts: ab_throw_pebble -> [92mpc_2 Cleric (Grey)[0m
+[94men_0 Tiny Pteronura[0m CRIT [92mpc_2 Cleric (Grey)[0m 60->59 (-1) via none
+[94men_0 Tiny Pteronura[0m waits.
+  [90m[Budget spent: 120 / 140][0m
+[94men_2 Tiny Pteronura[0m acts: ab_throw_pebble -> [93mpc_1 Wizard (Fire)[0m
+[94men_2 Tiny Pteronura[0m HIT [93mpc_1 Wizard (Fire)[0m 28->24 (-4) via none
+[94men_2 Tiny Pteronura[0m acts: ab_throw_pebble -> [93mpc_1 Wizard (Fire)[0m
+[94men_2 Tiny Pteronura[0m HIT [93mpc_1 Wizard (Fire)[0m 24->20 (-4) via none
+  [90m[Budget spent: 120 / 120][0m
+[91mpc_3 Marksman (Crossbow)[0m acts: ab_attack_basic -> [38;5;218men_4 Terrapinnikin (1000y)[0m
+[91mpc_3 Marksman (Crossbow)[0m uses ab_attack_basic on [38;5;218men_4 Terrapinnikin (1000y)[0m => MISS
+[91mpc_3 Marksman (Crossbow)[0m acts: ab_attack_basic -> [38;5;218men_4 Terrapinnikin (1000y)[0m
+[91mpc_3 Marksman (Crossbow)[0m HIT [38;5;218men_4 Terrapinnikin (1000y)[0m 37->29 (-8) via none
+[91mpc_3 Marksman (Crossbow)[0m waits.
+  [90m[Budget spent: 120 / 140][0m
+[38;5;218men_1 Nascent Backahast[0m waits.
+  [90m[Budget spent: 0 / 160][0m
+[94men_0 Tiny Pteronura[0m acts: ab_throw_pebble -> [92mpc_2 Cleric (Grey)[0m
+[94men_0 Tiny Pteronura[0m HIT [92mpc_2 Cleric (Grey)[0m 59->58 (-1) via none
+[94men_0 Tiny Pteronura[0m acts: ab_throw_pebble -> [92mpc_2 Cleric (Grey)[0m
+[94men_0 Tiny Pteronura[0m HIT [92mpc_2 Cleric (Grey)[0m 58->57 (-1) via none
+  [90m[Budget spent: 120 / 120][0m
+DOT fire: [38;5;218men_4 Terrapinnikin (1000y)[0m 29->24 (-5)
+[38;5;218men_4 Terrapinnikin (1000y)[0m acts: ab_attack_basic -> [93mpc_1 Wizard (Fire)[0m
+[38;5;218men_4 Terrapinnikin (1000y)[0m HIT [91mpc_1 Wizard (Fire)[0m 20->4 (-16) via none
+[38;5;218men_4 Terrapinnikin (1000y)[0m waits.
+  [90m[Budget spent: 60 / 100][0m
+[94men_5 Kelpie Praestigii[0m acts: ab_slow_snare -> [91mpc_1 Wizard (Fire)[0m
+  status: [91mpc_1 Wizard (Fire)[0m gains st_slowed (dur=3)
+[94men_5 Kelpie Praestigii[0m waits.
+  [90m[Budget spent: 70 / 100][0m
+[91mpc_3 Marksman (Crossbow)[0m acts: ab_attack_basic -> [38;5;218men_4 Terrapinnikin (1000y)[0m
+[91mpc_3 Marksman (Crossbow)[0m HIT [38;5;160men_4 Terrapinnikin (1000y)[0m 24->16 (-8) via none
+[91mpc_3 Marksman (Crossbow)[0m acts: ab_attack_basic -> [38;5;160men_4 Terrapinnikin (1000y)[0m
+[91mpc_3 Marksman (Crossbow)[0m HIT [38;5;160men_4 Terrapinnikin (1000y)[0m 16->8 (-8) via none
+  [90m[Budget spent: 120 / 120][0m
+[92mpc_2 Cleric (Grey)[0m acts: ab_attack_basic -> [38;5;160men_4 Terrapinnikin (1000y)[0m
+[92mpc_2 Cleric (Grey)[0m HIT [38;5;160men_4 Terrapinnikin (1000y)[0m 8->2 (-6) via none
+[92mpc_2 Cleric (Grey)[0m acts: ab_attack_basic -> [38;5;160men_4 Terrapinnikin (1000y)[0m
+[92mpc_2 Cleric (Grey)[0m HIT [38;5;160men_4 Terrapinnikin (1000y)[0m 2->0 (-6) via none
+[97;41m*** KO: [38;5;160men_4 Terrapinnikin (1000y)[0m[0m
+[92mpc_2 Cleric (Grey)[0m waits.
+  [90m[Budget spent: 120 / 140][0m
+[38;5;218men_1 Nascent Backahast[0m waits.
+  [90m[Budget spent: 0 / 160][0m
+[91mpc_1 Wizard (Fire)[0m acts: ab_attack_basic -> [38;5;218men_1 Nascent Backahast[0m
+[91mpc_1 Wizard (Fire)[0m HIT [38;5;160men_1 Nascent Backahast[0m 14->1 (-13) via none
+[91mpc_1 Wizard (Fire)[0m waits.
+  [90m[Budget spent: 60 / 105][0m
+[94men_2 Tiny Pteronura[0m acts: ab_throw_pebble -> [91mpc_1 Wizard (Fire)[0m
+[94men_2 Tiny Pteronura[0m HIT [91mpc_1 Wizard (Fire)[0m 4->0 (-4) via none
+[97;41m*** KO: [91mpc_1 Wizard (Fire)[0m[0m
+[94men_2 Tiny Pteronura[0m waits.
+  [90m[Budget spent: 60 / 100][0m
+[94men_5 Kelpie Praestigii[0m acts: ab_slow_snare -> [92mpc_2 Cleric (Grey)[0m
+  status: [92mpc_2 Cleric (Grey)[0m gains st_slowed (dur=3)
+[94men_5 Kelpie Praestigii[0m waits.
+  [90m[Budget spent: 70 / 130][0m
+[94men_0 Tiny Pteronura[0m acts: ab_throw_pebble -> [92mpc_2 Cleric (Grey)[0m
+[94men_0 Tiny Pteronura[0m uses ab_throw_pebble on [92mpc_2 Cleric (Grey)[0m => MISS
+[94men_0 Tiny Pteronura[0m waits.
+  [90m[Budget spent: 60 / 100][0m
+[94men_2 Tiny Pteronura[0m acts: ab_throw_pebble -> [92mpc_2 Cleric (Grey)[0m
+[94men_2 Tiny Pteronura[0m uses ab_throw_pebble on [92mpc_2 Cleric (Grey)[0m => MISS
+[94men_2 Tiny Pteronura[0m acts: ab_throw_pebble -> [92mpc_2 Cleric (Grey)[0m
+[94men_2 Tiny Pteronura[0m uses ab_throw_pebble on [92mpc_2 Cleric (Grey)[0m => MISS
+[94men_2 Tiny Pteronura[0m waits.
+  [90m[Budget spent: 120 / 140][0m
+[38;5;160men_1 Nascent Backahast[0m moves (6,6) -> (8,6)
+[38;5;160men_1 Nascent Backahast[0m waits.
+  [90m[Budget spent: 40 / 160][0m
+[91mpc_3 Marksman (Crossbow)[0m acts: ab_shoot_xbow -> [38;5;160men_1 Nascent Backahast[0m
+[91mpc_3 Marksman (Crossbow)[0m uses ab_shoot_xbow on [38;5;160men_1 Nascent Backahast[0m => MISS
+[91mpc_3 Marksman (Crossbow)[0m waits.
+  [90m[Budget spent: 60 / 100][0m
+[94men_5 Kelpie Praestigii[0m acts: ab_slow_snare -> [92mpc_2 Cleric (Grey)[0m
+  status: [92mpc_2 Cleric (Grey)[0m gains st_slowed (dur=3)
+[94men_5 Kelpie Praestigii[0m acts: ab_slow_snare -> [92mpc_2 Cleric (Grey)[0m
+  status: [92mpc_2 Cleric (Grey)[0m gains st_slowed (dur=3)
+[94men_5 Kelpie Praestigii[0m waits.
+  [90m[Budget spent: 140 / 160][0m
+[92mpc_2 Cleric (Grey)[0m acts: ab_attack_basic -> [38;5;160men_1 Nascent Backahast[0m
+[92mpc_2 Cleric (Grey)[0m HIT [38;5;160men_1 Nascent Backahast[0m 1->0 (-14) via none
+[97;41m*** KO: [38;5;160men_1 Nascent Backahast[0m[0m
+[92mpc_2 Cleric (Grey)[0m moves (8,7) -> (8,4)
+  [90m[Budget spent: 120 / 120][0m
+[94men_0 Tiny Pteronura[0m acts: ab_throw_pebble -> [92mpc_2 Cleric (Grey)[0m
+[94men_0 Tiny Pteronura[0m uses ab_throw_pebble on [92mpc_2 Cleric (Grey)[0m => MISS
+[94men_0 Tiny Pteronura[0m acts: ab_throw_pebble -> [92mpc_2 Cleric (Grey)[0m
+[94men_0 Tiny Pteronura[0m HIT [92mpc_2 Cleric (Grey)[0m 57->56 (-1) via none
+[94men_0 Tiny Pteronura[0m waits.
+  [90m[Budget spent: 120 / 140][0m
+[94men_2 Tiny Pteronura[0m acts: ab_throw_pebble -> [92mpc_2 Cleric (Grey)[0m
+[94men_2 Tiny Pteronura[0m HIT [92mpc_2 Cleric (Grey)[0m 56->55 (-1) via none
+[94men_2 Tiny Pteronura[0m acts: ab_throw_pebble -> [92mpc_2 Cleric (Grey)[0m
+[94men_2 Tiny Pteronura[0m uses ab_throw_pebble on [92mpc_2 Cleric (Grey)[0m => MISS
+  [90m[Budget spent: 120 / 120][0m
+[91mpc_3 Marksman (Crossbow)[0m acts: ab_shoot_xbow -> [94men_2 Tiny Pteronura[0m
+[91mpc_3 Marksman (Crossbow)[0m HIT [94men_2 Tiny Pteronura[0m 50->38 (-12) via none
+[91mpc_3 Marksman (Crossbow)[0m acts: ab_shoot_xbow -> [94men_2 Tiny Pteronura[0m
+[91mpc_3 Marksman (Crossbow)[0m HIT [38;5;218men_2 Tiny Pteronura[0m 38->26 (-12) via none
+[91mpc_3 Marksman (Crossbow)[0m waits.
+  [90m[Budget spent: 120 / 140][0m
+[94men_5 Kelpie Praestigii[0m acts: ab_slow_snare -> [92mpc_2 Cleric (Grey)[0m
+  status: [92mpc_2 Cleric (Grey)[0m gains st_slowed (dur=3)
+[94men_5 Kelpie Praestigii[0m waits.
+  [90m[Budget spent: 70 / 120][0m
+[91mpc_3 Marksman (Crossbow)[0m acts: ab_shoot_xbow -> [38;5;218men_2 Tiny Pteronura[0m
+[91mpc_3 Marksman (Crossbow)[0m uses ab_shoot_xbow on [38;5;218men_2 Tiny Pteronura[0m => MISS
+[91mpc_3 Marksman (Crossbow)[0m acts: ab_shoot_xbow -> [38;5;218men_2 Tiny Pteronura[0m
+[91mpc_3 Marksman (Crossbow)[0m HIT [38;5;218men_2 Tiny Pteronura[0m 26->14 (-12) via none
+  [90m[Budget spent: 120 / 120][0m
+[94men_0 Tiny Pteronura[0m acts: ab_throw_pebble -> [92mpc_2 Cleric (Grey)[0m
+[94men_0 Tiny Pteronura[0m HIT [92mpc_2 Cleric (Grey)[0m 55->54 (-1) via none
+[94men_0 Tiny Pteronura[0m acts: ab_throw_pebble -> [92mpc_2 Cleric (Grey)[0m
+[94men_0 Tiny Pteronura[0m uses ab_throw_pebble on [92mpc_2 Cleric (Grey)[0m => MISS
+  [90m[Budget spent: 120 / 120][0m
+[94men_5 Kelpie Praestigii[0m acts: ab_slow_snare -> [92mpc_2 Cleric (Grey)[0m
+  status: [92mpc_2 Cleric (Grey)[0m gains st_slowed (dur=3)
+[94men_5 Kelpie Praestigii[0m acts: ab_slow_snare -> [92mpc_2 Cleric (Grey)[0m
+  status: [92mpc_2 Cleric (Grey)[0m gains st_slowed (dur=3)
+[94men_5 Kelpie Praestigii[0m waits.
+  [90m[Budget spent: 140 / 150][0m
+[38;5;218men_2 Tiny Pteronura[0m acts: ab_throw_pebble -> [92mpc_2 Cleric (Grey)[0m
+[38;5;218men_2 Tiny Pteronura[0m HIT [92mpc_2 Cleric (Grey)[0m 54->53 (-1) via none
+[38;5;218men_2 Tiny Pteronura[0m waits.
+  [90m[Budget spent: 60 / 100][0m
+[94men_5 Kelpie Praestigii[0m acts: ab_slow_snare -> [92mpc_2 Cleric (Grey)[0m
+  status: [92mpc_2 Cleric (Grey)[0m gains st_slowed (dur=3)
+[94men_5 Kelpie Praestigii[0m waits.
+  [90m[Budget spent: 70 / 110][0m
+[91mpc_3 Marksman (Crossbow)[0m acts: ab_shoot_xbow -> [38;5;218men_2 Tiny Pteronura[0m
+[91mpc_3 Marksman (Crossbow)[0m HIT [38;5;160men_2 Tiny Pteronura[0m 14->2 (-12) via none
+[91mpc_3 Marksman (Crossbow)[0m waits.
+  [90m[Budget spent: 60 / 100][0m
+[94men_0 Tiny Pteronura[0m acts: ab_throw_pebble -> [92mpc_2 Cleric (Grey)[0m
+[94men_0 Tiny Pteronura[0m HIT [92mpc_2 Cleric (Grey)[0m 53->52 (-1) via none
+[94men_0 Tiny Pteronura[0m waits.
+  [90m[Budget spent: 60 / 100][0m
+[38;5;160men_2 Tiny Pteronura[0m acts: ab_throw_pebble -> [92mpc_2 Cleric (Grey)[0m
+[38;5;160men_2 Tiny Pteronura[0m uses ab_throw_pebble on [92mpc_2 Cleric (Grey)[0m => MISS
+[38;5;160men_2 Tiny Pteronura[0m acts: ab_throw_pebble -> [92mpc_2 Cleric (Grey)[0m
+[38;5;160men_2 Tiny Pteronura[0m HIT [92mpc_2 Cleric (Grey)[0m 52->51 (-1) via none
+[38;5;160men_2 Tiny Pteronura[0m waits.
+  [90m[Budget spent: 120 / 140][0m
+[94men_5 Kelpie Praestigii[0m acts: ab_slow_snare -> [92mpc_2 Cleric (Grey)[0m
+  status: [92mpc_2 Cleric (Grey)[0m gains st_slowed (dur=3)
+[94men_5 Kelpie Praestigii[0m acts: ab_slow_snare -> [92mpc_2 Cleric (Grey)[0m
+  status: [92mpc_2 Cleric (Grey)[0m gains st_slowed (dur=3)
+  [90m[Budget spent: 140 / 140][0m
+[91mpc_3 Marksman (Crossbow)[0m acts: ab_shoot_xbow -> [38;5;160men_2 Tiny Pteronura[0m
+[91mpc_3 Marksman (Crossbow)[0m HIT [38;5;160men_2 Tiny Pteronura[0m 2->0 (-12) via none
+[97;41m*** KO: [38;5;160men_2 Tiny Pteronura[0m[0m
+[91mpc_3 Marksman (Crossbow)[0m acts: ab_shoot_xbow -> [94men_0 Tiny Pteronura[0m
+[91mpc_3 Marksman (Crossbow)[0m HIT [94men_0 Tiny Pteronura[0m 50->38 (-12) via none
+[91mpc_3 Marksman (Crossbow)[0m waits.
+  [90m[Budget spent: 120 / 140][0m
+[94men_0 Tiny Pteronura[0m acts: ab_throw_pebble -> [92mpc_2 Cleric (Grey)[0m
+[94men_0 Tiny Pteronura[0m HIT [92mpc_2 Cleric (Grey)[0m 51->50 (-1) via none
+[94men_0 Tiny Pteronura[0m acts: ab_throw_pebble -> [92mpc_2 Cleric (Grey)[0m
+[94men_0 Tiny Pteronura[0m HIT [92mpc_2 Cleric (Grey)[0m 50->49 (-1) via none
+[94men_0 Tiny Pteronura[0m waits.
+  [90m[Budget spent: 120 / 140][0m
+[91mpc_3 Marksman (Crossbow)[0m acts: ab_shoot_xbow -> [94men_0 Tiny Pteronura[0m
+[91mpc_3 Marksman (Crossbow)[0m HIT [38;5;218men_0 Tiny Pteronura[0m 38->26 (-12) via none
+[91mpc_3 Marksman (Crossbow)[0m acts: ab_shoot_xbow -> [38;5;218men_0 Tiny Pteronura[0m
+[91mpc_3 Marksman (Crossbow)[0m HIT [38;5;218men_0 Tiny Pteronura[0m 26->14 (-12) via none
+  [90m[Budget spent: 120 / 120][0m
+[38;5;218men_0 Tiny Pteronura[0m acts: ab_throw_pebble -> [92mpc_2 Cleric (Grey)[0m
+[38;5;218men_0 Tiny Pteronura[0m HIT [92mpc_2 Cleric (Grey)[0m 49->48 (-1) via none
+[38;5;218men_0 Tiny Pteronura[0m acts: ab_throw_pebble -> [92mpc_2 Cleric (Grey)[0m
+[38;5;218men_0 Tiny Pteronura[0m HIT [92mpc_2 Cleric (Grey)[0m 48->47 (-1) via none
+  [90m[Budget spent: 120 / 120][0m
+[94men_5 Kelpie Praestigii[0m acts: ab_slow_snare -> [92mpc_2 Cleric (Grey)[0m
+  status: [92mpc_2 Cleric (Grey)[0m gains st_slowed (dur=3)
+[94men_5 Kelpie Praestigii[0m waits.
+  [90m[Budget spent: 70 / 100][0m
+[91mpc_3 Marksman (Crossbow)[0m acts: ab_shoot_xbow -> [38;5;218men_0 Tiny Pteronura[0m
+[91mpc_3 Marksman (Crossbow)[0m HIT [38;5;160men_0 Tiny Pteronura[0m 14->2 (-12) via none
+[91mpc_3 Marksman (Crossbow)[0m waits.
+  [90m[Budget spent: 60 / 100][0m
+[91mpc_3 Marksman (Crossbow)[0m acts: ab_shoot_xbow -> [38;5;160men_0 Tiny Pteronura[0m
+[91mpc_3 Marksman (Crossbow)[0m HIT [38;5;160men_0 Tiny Pteronura[0m 2->0 (-12) via none
+[97;41m*** KO: [38;5;160men_0 Tiny Pteronura[0m[0m
+[91mpc_3 Marksman (Crossbow)[0m acts: ab_shoot_xbow -> [94men_5 Kelpie Praestigii[0m
+[91mpc_3 Marksman (Crossbow)[0m HIT [94men_5 Kelpie Praestigii[0m 50->38 (-12) via none
+[91mpc_3 Marksman (Crossbow)[0m waits.
+  [90m[Budget spent: 120 / 140][0m
+[94men_5 Kelpie Praestigii[0m acts: ab_slow_snare -> [92mpc_2 Cleric (Grey)[0m
+  status: [92mpc_2 Cleric (Grey)[0m gains st_slowed (dur=3)
+[94men_5 Kelpie Praestigii[0m waits.
+  [90m[Budget spent: 70 / 130][0m
+[92mpc_2 Cleric (Grey)[0m moves (8,4) -> (7,3)
+[92mpc_2 Cleric (Grey)[0m acts: ab_attack_basic -> [94men_5 Kelpie Praestigii[0m
+[92mpc_2 Cleric (Grey)[0m uses ab_attack_basic on [94men_5 Kelpie Praestigii[0m => MISS
+  [90m[Budget spent: 100 / 100][0m
+[91mpc_3 Marksman (Crossbow)[0m acts: ab_shoot_xbow -> [94men_5 Kelpie Praestigii[0m
+[91mpc_3 Marksman (Crossbow)[0m uses ab_shoot_xbow on [94men_5 Kelpie Praestigii[0m => MISS
+[91mpc_3 Marksman (Crossbow)[0m acts: ab_shoot_xbow -> [94men_5 Kelpie Praestigii[0m
+[91mpc_3 Marksman (Crossbow)[0m uses ab_shoot_xbow on [94men_5 Kelpie Praestigii[0m => MISS
+  [90m[Budget spent: 120 / 120][0m
+[94men_5 Kelpie Praestigii[0m acts: ab_slow_snare -> [92mpc_2 Cleric (Grey)[0m
+  status: [92mpc_2 Cleric (Grey)[0m gains st_slowed (dur=3)
+[94men_5 Kelpie Praestigii[0m acts: ab_slow_snare -> [92mpc_2 Cleric (Grey)[0m
+  status: [92mpc_2 Cleric (Grey)[0m gains st_slowed (dur=3)
+[94men_5 Kelpie Praestigii[0m waits.
+  [90m[Budget spent: 140 / 160][0m
+[94men_5 Kelpie Praestigii[0m acts: ab_slow_snare -> [92mpc_2 Cleric (Grey)[0m
+  status: [92mpc_2 Cleric (Grey)[0m gains st_slowed (dur=3)
+[94men_5 Kelpie Praestigii[0m waits.
+  [90m[Budget spent: 70 / 120][0m
+[91mpc_3 Marksman (Crossbow)[0m acts: ab_shoot_xbow -> [94men_5 Kelpie Praestigii[0m
+[91mpc_3 Marksman (Crossbow)[0m HIT [38;5;218men_5 Kelpie Praestigii[0m 38->26 (-12) via none
+[91mpc_3 Marksman (Crossbow)[0m waits.
+  [90m[Budget spent: 60 / 100][0m
+[38;5;218men_5 Kelpie Praestigii[0m acts: ab_slow_snare -> [92mpc_2 Cleric (Grey)[0m
+  status: [92mpc_2 Cleric (Grey)[0m gains st_slowed (dur=3)
+[38;5;218men_5 Kelpie Praestigii[0m acts: ab_slow_snare -> [92mpc_2 Cleric (Grey)[0m
+  status: [92mpc_2 Cleric (Grey)[0m gains st_slowed (dur=3)
+[38;5;218men_5 Kelpie Praestigii[0m waits.
+  [90m[Budget spent: 140 / 150][0m
+[91mpc_3 Marksman (Crossbow)[0m acts: ab_shoot_xbow -> [38;5;218men_5 Kelpie Praestigii[0m
+[91mpc_3 Marksman (Crossbow)[0m HIT [38;5;218men_5 Kelpie Praestigii[0m 26->14 (-12) via none
+[91mpc_3 Marksman (Crossbow)[0m acts: ab_shoot_xbow -> [38;5;218men_5 Kelpie Praestigii[0m
+[91mpc_3 Marksman (Crossbow)[0m HIT [38;5;160men_5 Kelpie Praestigii[0m 14->2 (-12) via none
+[91mpc_3 Marksman (Crossbow)[0m waits.
+  [90m[Budget spent: 120 / 140][0m
+[38;5;160men_5 Kelpie Praestigii[0m acts: ab_slow_snare -> [92mpc_2 Cleric (Grey)[0m
+  status: [92mpc_2 Cleric (Grey)[0m gains st_slowed (dur=3)
+[38;5;160men_5 Kelpie Praestigii[0m waits.
+  [90m[Budget spent: 70 / 110][0m
+[91mpc_3 Marksman (Crossbow)[0m acts: ab_shoot_xbow -> [38;5;160men_5 Kelpie Praestigii[0m
+[91mpc_3 Marksman (Crossbow)[0m HIT [38;5;160men_5 Kelpie Praestigii[0m 2->0 (-12) via none
+[97;41m*** KO: [38;5;160men_5 Kelpie Praestigii[0m[0m
+[91mpc_3 Marksman (Crossbow)[0m waits.
+  [90m[Budget spent: 60 / 120][0m
+
+[1;97m=== RESULT ===[0m
+[92;1mWIN[0m

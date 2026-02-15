@@ -9,3 +9,15 @@ C:\Users\Administrator\Documents\Cli Game\Isekai.VSlice.Core\obj\Debug\net8.0\Is
 C:\Users\Administrator\Documents\Cli Game\Isekai.VSlice.Core\obj\Debug\net8.0\refint\Isekai.VSlice.Core.dll
 C:\Users\Administrator\Documents\Cli Game\Isekai.VSlice.Core\obj\Debug\net8.0\Isekai.VSlice.Core.pdb
 C:\Users\Administrator\Documents\Cli Game\Isekai.VSlice.Core\obj\Debug\net8.0\ref\Isekai.VSlice.Core.dll
+C:\Users\Administrator\Games\CLI-Game\Isekai.VSlice.Core\bin\Debug\net8.0\Isekai.VSlice.Core.deps.json
+C:\Users\Administrator\Games\CLI-Game\Isekai.VSlice.Core\bin\Debug\net8.0\Isekai.VSlice.Core.dll
+C:\Users\Administrator\Games\CLI-Game\Isekai.VSlice.Core\bin\Debug\net8.0\Isekai.VSlice.Core.pdb
+C:\Users\Administrator\Games\CLI-Game\Isekai.VSlice.Core\obj\Debug\net8.0\Isekai.VSlice.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Administrator\Games\CLI-Game\Isekai.VSlice.Core\obj\Debug\net8.0\Isekai.VSlice.Core.AssemblyInfoInputs.cache
+C:\Users\Administrator\Games\CLI-Game\Isekai.VSlice.Core\obj\Debug\net8.0\Isekai.VSlice.Core.AssemblyInfo.cs
+C:\Users\Administrator\Games\CLI-Game\Isekai.VSlice.Core\obj\Debug\net8.0\Isekai.VSlice.Core.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Games\CLI-Game\Isekai.VSlice.Core\obj\Debug\net8.0\Isekai.VSlice.Core.sourcelink.json
+C:\Users\Administrator\Games\CLI-Game\Isekai.VSlice.Core\obj\Debug\net8.0\Isekai.VSlice.Core.dll
+C:\Users\Administrator\Games\CLI-Game\Isekai.VSlice.Core\obj\Debug\net8.0\refint\Isekai.VSlice.Core.dll
+C:\Users\Administrator\Games\CLI-Game\Isekai.VSlice.Core\obj\Debug\net8.0\Isekai.VSlice.Core.pdb
+C:\Users\Administrator\Games\CLI-Game\Isekai.VSlice.Core\obj\Debug\net8.0\ref\Isekai.VSlice.Core.dll

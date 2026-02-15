@@ -37,7 +37,8 @@ public static class BattleRunner
 
             while (budget > 0 && actor.IsAlive)
             {
-                var decision = AiV0.ChooseAction(s, actor);
+                // --- CHANGED: Pass budget and free-action state to AI ---
+                var decision = AiV0.ChooseAction(s, actor, budget, usedFreeAction);
                 var didSomething = false;
 
                 if (decision.HasMove)

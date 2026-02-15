@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Isekai.VSlice.Core")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+acb1f4dd28e5d9d33e6904ae8d5f261b5b565340")]
 [assembly: System.Reflection.AssemblyProductAttribute("Isekai.VSlice.Core")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Isekai.VSlice.Core")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

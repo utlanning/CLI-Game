@@ -1,0 +1,229 @@
+﻿
+[1;97m=== SPAWN ===[0m
+Encounter: enc_v0_baseline_01  Map: map_12x12_arena_01  Seed: 125
+Budget: 40  UnitCap: 10  DesiredEnemies: 4  Spawned: 4  BudgetLeft: 19
+MaxSameTemplate: 3
+[92mpc_0 Soldier (Tank)[0m         HP=70 MP=12 SPD=8 @(1,10)
+[92mpc_1 Wizard (Fire)[0m          HP=40 MP=36 SPD=10 @(2,10)
+[92mpc_2 Cleric (Grey)[0m          HP=60 MP=20 SPD=8 @(1,11)
+[92mpc_3 Marksman (Crossbow)[0m    HP=50 MP=12 SPD=16 @(2,11)
+[94men_0 Tiny Pteronura[0m         HP=50 MP=12 SPD=14 @(8,2)
+[94men_1 Baby Cownose[0m           HP=60 MP=24 SPD=10 @(8,1)
+[94men_2 Terrapinnikin (1000y)[0m  HP=80 MP=12 SPD=6 @(11,0)
+[94men_3 River Crab[0m             HP=60 MP=12 SPD=10 @(9,2)
+
+[1;97m=== BATTLE ===[0m
+[92mpc_3 Marksman (Crossbow)[0m moves (2,11) -> (6,11)
+[92mpc_3 Marksman (Crossbow)[0m waits.
+  [90m[Budget spent: 80 / 100][0m
+[94men_0 Tiny Pteronura[0m moves (8,2) -> (6,4)
+[94men_0 Tiny Pteronura[0m waits.
+  [90m[Budget spent: 80 / 100][0m
+[92mpc_3 Marksman (Crossbow)[0m acts: ab_shoot_xbow -> [94men_0 Tiny Pteronura[0m
+[92mpc_3 Marksman (Crossbow)[0m HIT [94men_0 Tiny Pteronura[0m 50->38 (-12) via none
+[92mpc_3 Marksman (Crossbow)[0m acts: ab_shoot_xbow -> [94men_0 Tiny Pteronura[0m
+[92mpc_3 Marksman (Crossbow)[0m HIT [38;5;218men_0 Tiny Pteronura[0m 38->26 (-12) via none
+  [90m[Budget spent: 120 / 120][0m
+[38;5;218men_0 Tiny Pteronura[0m acts: ab_mark_target -> [92mpc_3 Marksman (Crossbow)[0m
+  status: [92mpc_3 Marksman (Crossbow)[0m gains st_marked (dur=2)
+[38;5;218men_0 Tiny Pteronura[0m acts: ab_mark_target -> [92mpc_3 Marksman (Crossbow)[0m
+  status: [92mpc_3 Marksman (Crossbow)[0m gains st_marked (dur=2)
+[38;5;218men_0 Tiny Pteronura[0m waits.
+  [90m[Budget spent: 110 / 120][0m
+[94men_1 Baby Cownose[0m moves (8,1) -> (6,3)
+[94men_1 Baby Cownose[0m waits.
+  [90m[Budget spent: 80 / 100][0m
+[94men_3 River Crab[0m moves (9,2) -> (7,4)
+[94men_3 River Crab[0m waits.
+  [90m[Budget spent: 80 / 100][0m
+[92mpc_1 Wizard (Fire)[0m acts: ab_focus -> [92mpc_1 Wizard (Fire)[0m
+  status: [92mpc_1 Wizard (Fire)[0m gains st_focused (dur=4)
+[92mpc_1 Wizard (Fire)[0m waits.
+  [90m[Budget spent: 50 / 100][0m
+[92mpc_0 Soldier (Tank)[0m moves (1,10) -> (4,9)
+[92mpc_0 Soldier (Tank)[0m waits.
+  [90m[Budget spent: 80 / 100][0m
+[92mpc_2 Cleric (Grey)[0m moves (1,11) -> (5,11)
+[92mpc_2 Cleric (Grey)[0m waits.
+  [90m[Budget spent: 80 / 100][0m
+[38;5;218men_0 Tiny Pteronura[0m acts: ab_mark_target -> [92mpc_0 Soldier (Tank)[0m
+  status: [92mpc_0 Soldier (Tank)[0m gains st_marked (dur=2)
+[38;5;218men_0 Tiny Pteronura[0m acts: ab_mark_target -> [92mpc_0 Soldier (Tank)[0m
+  status: [92mpc_0 Soldier (Tank)[0m gains st_marked (dur=2)
+  [90m[Budget spent: 110 / 110][0m
+[94men_1 Baby Cownose[0m moves (6,3) -> (4,5)
+[94men_1 Baby Cownose[0m waits.
+  [90m[Budget spent: 80 / 120][0m
+[94men_3 River Crab[0m moves (7,4) -> (5,6)
+[94men_3 River Crab[0m waits.
+  [90m[Budget spent: 80 / 120][0m
+[92mpc_1 Wizard (Fire)[0m moves (2,10) -> (4,8)
+[92mpc_1 Wizard (Fire)[0m acts: ab_firebolt -> [94men_1 Baby Cownose[0m
+[92mpc_1 Wizard (Fire)[0m HIT [38;5;218men_1 Baby Cownose[0m 60->36 (-24) via fire
+  status: [38;5;218men_1 Baby Cownose[0m gains st_burning (dur=2)
+[92mpc_1 Wizard (Fire)[0m waits.
+  [90m[Budget spent: 145 / 150][0m
+[92mpc_3 Marksman (Crossbow)[0m acts: ab_shoot_xbow -> [94men_3 River Crab[0m
+[92mpc_3 Marksman (Crossbow)[0m HIT [94men_3 River Crab[0m 60->50 (-10) via none
+[92mpc_3 Marksman (Crossbow)[0m waits.
+  [90m[Budget spent: 60 / 100][0m
+[94men_2 Terrapinnikin (1000y)[0m moves (11,0) -> (7,0)
+[94men_2 Terrapinnikin (1000y)[0m waits.
+  [90m[Budget spent: 80 / 100][0m
+[92mpc_3 Marksman (Crossbow)[0m acts: ab_shoot_xbow -> [94men_3 River Crab[0m
+[92mpc_3 Marksman (Crossbow)[0m uses ab_shoot_xbow on [94men_3 River Crab[0m => MISS
+[92mpc_3 Marksman (Crossbow)[0m acts: ab_shoot_xbow -> [94men_3 River Crab[0m
+[92mpc_3 Marksman (Crossbow)[0m uses ab_shoot_xbow on [94men_3 River Crab[0m => MISS
+[92mpc_3 Marksman (Crossbow)[0m waits.
+  [90m[Budget spent: 120 / 140][0m
+[92mpc_0 Soldier (Tank)[0m moves (4,9) -> (4,7)
+[92mpc_0 Soldier (Tank)[0m moves (4,7) -> (4,6)
+[92mpc_0 Soldier (Tank)[0m acts: ab_attack_basic -> [38;5;218men_1 Baby Cownose[0m
+[92mpc_0 Soldier (Tank)[0m HIT [38;5;218men_1 Baby Cownose[0m 36->22 (-14) via none
+  [90m[Budget spent: 120 / 120][0m
+[92mpc_2 Cleric (Grey)[0m acts: ab_smite_light -> [94men_3 River Crab[0m
+[92mpc_2 Cleric (Grey)[0m HIT [38;5;218men_3 River Crab[0m 50->34 (-16) via light
+  status: [38;5;218men_3 River Crab[0m gains st_exposed (dur=1)
+[92mpc_2 Cleric (Grey)[0m waits.
+  [90m[Budget spent: 65 / 120][0m
+DOT fire: [38;5;218men_1 Baby Cownose[0m 22->17 (-5)
+[38;5;218men_1 Baby Cownose[0m acts: ab_water_splash_los -> [92mpc_0 Soldier (Tank)[0m
+[38;5;218men_1 Baby Cownose[0m HIT [92mpc_0 Soldier (Tank)[0m 70->56 (-14) via water
+[38;5;218men_1 Baby Cownose[0m acts: ab_water_splash_los -> [92mpc_0 Soldier (Tank)[0m
+[38;5;218men_1 Baby Cownose[0m HIT [93mpc_0 Soldier (Tank)[0m 56->42 (-14) via water
+[38;5;218men_1 Baby Cownose[0m waits.
+  [90m[Budget spent: 130 / 140][0m
+[38;5;218men_3 River Crab[0m acts: ab_attack_basic -> [93mpc_0 Soldier (Tank)[0m
+[38;5;218men_3 River Crab[0m HIT [93mpc_0 Soldier (Tank)[0m 42->32 (-10) via none
+[38;5;218men_3 River Crab[0m acts: ab_attack_basic -> [93mpc_0 Soldier (Tank)[0m
+[38;5;218men_3 River Crab[0m HIT [93mpc_0 Soldier (Tank)[0m 32->22 (-10) via none
+[38;5;218men_3 River Crab[0m waits.
+  [90m[Budget spent: 120 / 140][0m
+[92mpc_1 Wizard (Fire)[0m acts: ab_firebolt -> [38;5;218men_1 Baby Cownose[0m
+[92mpc_1 Wizard (Fire)[0m HIT [38;5;160men_1 Baby Cownose[0m 17->0 (-24) via fire
+[97;41m*** KO: [38;5;160men_1 Baby Cownose[0m[0m
+  status: [38;5;160men_1 Baby Cownose[0m gains st_burning (dur=2)
+[92mpc_1 Wizard (Fire)[0m waits.
+  [90m[Budget spent: 65 / 105][0m
+[92mpc_3 Marksman (Crossbow)[0m acts: ab_shoot_xbow -> [38;5;218men_3 River Crab[0m
+[92mpc_3 Marksman (Crossbow)[0m HIT [38;5;218men_3 River Crab[0m 34->22 (-12) via none
+[92mpc_3 Marksman (Crossbow)[0m acts: ab_shoot_xbow -> [38;5;218men_3 River Crab[0m
+[92mpc_3 Marksman (Crossbow)[0m HIT [38;5;160men_3 River Crab[0m 22->10 (-12) via none
+  [90m[Budget spent: 120 / 120][0m
+[38;5;218men_0 Tiny Pteronura[0m acts: ab_throw_pebble -> [93mpc_0 Soldier (Tank)[0m
+[38;5;218men_0 Tiny Pteronura[0m HIT [93mpc_0 Soldier (Tank)[0m 22->21 (-1) via none
+[38;5;218men_0 Tiny Pteronura[0m waits.
+  [90m[Budget spent: 60 / 100][0m
+[38;5;160men_3 River Crab[0m acts: ab_attack_basic -> [93mpc_0 Soldier (Tank)[0m
+[38;5;160men_3 River Crab[0m uses ab_attack_basic on [93mpc_0 Soldier (Tank)[0m => MISS
+[38;5;160men_3 River Crab[0m acts: ab_attack_basic -> [93mpc_0 Soldier (Tank)[0m
+[38;5;160men_3 River Crab[0m HIT [91mpc_0 Soldier (Tank)[0m 21->11 (-10) via none
+  [90m[Budget spent: 120 / 120][0m
+[92mpc_1 Wizard (Fire)[0m acts: ab_firebolt -> [38;5;160men_3 River Crab[0m
+[92mpc_1 Wizard (Fire)[0m HIT [38;5;160men_3 River Crab[0m 10->0 (-29) via fire
+[97;41m*** KO: [38;5;160men_3 River Crab[0m[0m
+  status: [38;5;160men_3 River Crab[0m gains st_burning (dur=2)
+[92mpc_1 Wizard (Fire)[0m acts: ab_firebolt -> [38;5;218men_0 Tiny Pteronura[0m
+[92mpc_1 Wizard (Fire)[0m HIT [38;5;160men_0 Tiny Pteronura[0m 26->1 (-25) via fire
+  status: [38;5;160men_0 Tiny Pteronura[0m gains st_burning (dur=2)
+[92mpc_1 Wizard (Fire)[0m waits.
+  [90m[Budget spent: 130 / 140][0m
+[92mpc_2 Cleric (Grey)[0m acts: ab_heal -> [91mpc_0 Soldier (Tank)[0m
+[92mpc_2 Cleric (Grey)[0m uses ab_heal on [93mpc_0 Soldier (Tank)[0m HEAL 11->44
+[92mpc_2 Cleric (Grey)[0m moves (5,11) -> (6,8)
+[92mpc_2 Cleric (Grey)[0m waits.
+  [90m[Budget spent: 150 / 155][0m
+DOT fire: [38;5;160men_0 Tiny Pteronura[0m 1->0 (-5)
+[97;41m*** KO: [38;5;160men_0 Tiny Pteronura[0m[0m
+[94men_2 Terrapinnikin (1000y)[0m moves (7,0) -> (4,1)
+[94men_2 Terrapinnikin (1000y)[0m waits.
+  [90m[Budget spent: 80 / 120][0m
+[92mpc_1 Wizard (Fire)[0m acts: ab_focus -> [92mpc_1 Wizard (Fire)[0m
+  status: [92mpc_1 Wizard (Fire)[0m gains st_focused (dur=4)
+[92mpc_1 Wizard (Fire)[0m waits.
+  [90m[Budget spent: 50 / 110][0m
+[92mpc_3 Marksman (Crossbow)[0m moves (6,11) -> (4,9)
+[92mpc_3 Marksman (Crossbow)[0m waits.
+  [90m[Budget spent: 80 / 100][0m
+[92mpc_2 Cleric (Grey)[0m moves (6,8) -> (5,5)
+[92mpc_2 Cleric (Grey)[0m waits.
+  [90m[Budget spent: 80 / 105][0m
+[92mpc_3 Marksman (Crossbow)[0m moves (4,9) -> (4,7)
+[92mpc_3 Marksman (Crossbow)[0m acts: ab_shoot_xbow -> [94men_2 Terrapinnikin (1000y)[0m
+[92mpc_3 Marksman (Crossbow)[0m uses ab_shoot_xbow on [94men_2 Terrapinnikin (1000y)[0m => MISS
+[92mpc_3 Marksman (Crossbow)[0m waits.
+  [90m[Budget spent: 100 / 120][0m
+[92mpc_1 Wizard (Fire)[0m moves (4,8) -> (3,5)
+[92mpc_1 Wizard (Fire)[0m moves (3,5) -> (4,2)
+  [90m[Budget spent: 160 / 160][0m
+[93mpc_0 Soldier (Tank)[0m moves (4,6) -> (4,3)
+[93mpc_0 Soldier (Tank)[0m waits.
+  [90m[Budget spent: 60 / 100][0m
+[94men_2 Terrapinnikin (1000y)[0m acts: ab_attack_basic -> [92mpc_1 Wizard (Fire)[0m
+[94men_2 Terrapinnikin (1000y)[0m HIT [93mpc_1 Wizard (Fire)[0m 40->24 (-16) via none
+[94men_2 Terrapinnikin (1000y)[0m acts: ab_attack_basic -> [93mpc_1 Wizard (Fire)[0m
+[94men_2 Terrapinnikin (1000y)[0m HIT [91mpc_1 Wizard (Fire)[0m 24->8 (-16) via none
+[94men_2 Terrapinnikin (1000y)[0m waits.
+  [90m[Budget spent: 120 / 140][0m
+[92mpc_3 Marksman (Crossbow)[0m acts: ab_shoot_xbow -> [94men_2 Terrapinnikin (1000y)[0m
+[92mpc_3 Marksman (Crossbow)[0m HIT [94men_2 Terrapinnikin (1000y)[0m 80->74 (-6) via none
+[92mpc_3 Marksman (Crossbow)[0m acts: ab_shoot_xbow -> [94men_2 Terrapinnikin (1000y)[0m
+[92mpc_3 Marksman (Crossbow)[0m HIT [94men_2 Terrapinnikin (1000y)[0m 74->68 (-6) via none
+  [90m[Budget spent: 120 / 120][0m
+[92mpc_2 Cleric (Grey)[0m moves (5,5) -> (5,1)
+[92mpc_2 Cleric (Grey)[0m waits.
+  [90m[Budget spent: 80 / 125][0m
+[93mpc_0 Soldier (Tank)[0m moves (4,3) -> (3,1)
+[93mpc_0 Soldier (Tank)[0m acts: ab_attack_basic -> [94men_2 Terrapinnikin (1000y)[0m
+[93mpc_0 Soldier (Tank)[0m HIT [38;5;218men_2 Terrapinnikin (1000y)[0m 68->58 (-10) via none
+[93mpc_0 Soldier (Tank)[0m waits.
+  [90m[Budget spent: 120 / 140][0m
+[38;5;218men_2 Terrapinnikin (1000y)[0m acts: ab_attack_basic -> [93mpc_0 Soldier (Tank)[0m
+[38;5;218men_2 Terrapinnikin (1000y)[0m CRIT [93mpc_0 Soldier (Tank)[0m 44->29 (-15) via none
+[38;5;218men_2 Terrapinnikin (1000y)[0m acts: ab_attack_basic -> [93mpc_0 Soldier (Tank)[0m
+[38;5;218men_2 Terrapinnikin (1000y)[0m HIT [93mpc_0 Soldier (Tank)[0m 29->19 (-10) via none
+  [90m[Budget spent: 120 / 120][0m
+[92mpc_3 Marksman (Crossbow)[0m acts: ab_shoot_xbow -> [38;5;218men_2 Terrapinnikin (1000y)[0m
+[92mpc_3 Marksman (Crossbow)[0m HIT [38;5;218men_2 Terrapinnikin (1000y)[0m 58->52 (-6) via none
+[92mpc_3 Marksman (Crossbow)[0m waits.
+  [90m[Budget spent: 60 / 100][0m
+[92mpc_2 Cleric (Grey)[0m acts: ab_attack_basic -> [38;5;218men_2 Terrapinnikin (1000y)[0m
+[92mpc_2 Cleric (Grey)[0m HIT [38;5;218men_2 Terrapinnikin (1000y)[0m 52->46 (-6) via none
+[92mpc_2 Cleric (Grey)[0m acts: ab_attack_basic -> [38;5;218men_2 Terrapinnikin (1000y)[0m
+[92mpc_2 Cleric (Grey)[0m HIT [38;5;218men_2 Terrapinnikin (1000y)[0m 46->40 (-6) via none
+[92mpc_2 Cleric (Grey)[0m waits.
+  [90m[Budget spent: 120 / 145][0m
+[92mpc_3 Marksman (Crossbow)[0m acts: ab_shoot_xbow -> [38;5;218men_2 Terrapinnikin (1000y)[0m
+[92mpc_3 Marksman (Crossbow)[0m HIT [38;5;218men_2 Terrapinnikin (1000y)[0m 40->34 (-6) via none
+[92mpc_3 Marksman (Crossbow)[0m acts: ab_shoot_xbow -> [38;5;218men_2 Terrapinnikin (1000y)[0m
+[92mpc_3 Marksman (Crossbow)[0m uses ab_shoot_xbow on [38;5;218men_2 Terrapinnikin (1000y)[0m => MISS
+[92mpc_3 Marksman (Crossbow)[0m waits.
+  [90m[Budget spent: 120 / 140][0m
+[91mpc_1 Wizard (Fire)[0m acts: ab_attack_basic -> [38;5;218men_2 Terrapinnikin (1000y)[0m
+[91mpc_1 Wizard (Fire)[0m HIT [38;5;218men_2 Terrapinnikin (1000y)[0m 34->29 (-5) via none
+[91mpc_1 Wizard (Fire)[0m waits.
+  [90m[Budget spent: 60 / 100][0m
+[93mpc_0 Soldier (Tank)[0m acts: ab_attack_basic -> [38;5;218men_2 Terrapinnikin (1000y)[0m
+[93mpc_0 Soldier (Tank)[0m HIT [38;5;160men_2 Terrapinnikin (1000y)[0m 29->19 (-10) via none
+[93mpc_0 Soldier (Tank)[0m acts: ab_attack_basic -> [38;5;160men_2 Terrapinnikin (1000y)[0m
+[93mpc_0 Soldier (Tank)[0m uses ab_attack_basic on [38;5;160men_2 Terrapinnikin (1000y)[0m => MISS
+  [90m[Budget spent: 120 / 120][0m
+[92mpc_3 Marksman (Crossbow)[0m acts: ab_shoot_xbow -> [38;5;160men_2 Terrapinnikin (1000y)[0m
+[92mpc_3 Marksman (Crossbow)[0m uses ab_shoot_xbow on [38;5;160men_2 Terrapinnikin (1000y)[0m => MISS
+[92mpc_3 Marksman (Crossbow)[0m acts: ab_shoot_xbow -> [38;5;160men_2 Terrapinnikin (1000y)[0m
+[92mpc_3 Marksman (Crossbow)[0m HIT [38;5;160men_2 Terrapinnikin (1000y)[0m 19->13 (-6) via none
+  [90m[Budget spent: 120 / 120][0m
+[92mpc_2 Cleric (Grey)[0m acts: ab_attack_basic -> [38;5;160men_2 Terrapinnikin (1000y)[0m
+[92mpc_2 Cleric (Grey)[0m HIT [38;5;160men_2 Terrapinnikin (1000y)[0m 13->7 (-6) via none
+[92mpc_2 Cleric (Grey)[0m acts: ab_attack_basic -> [38;5;160men_2 Terrapinnikin (1000y)[0m
+[92mpc_2 Cleric (Grey)[0m HIT [38;5;160men_2 Terrapinnikin (1000y)[0m 7->1 (-6) via none
+[92mpc_2 Cleric (Grey)[0m waits.
+  [90m[Budget spent: 120 / 125][0m
+[91mpc_1 Wizard (Fire)[0m acts: ab_attack_basic -> [38;5;160men_2 Terrapinnikin (1000y)[0m
+[91mpc_1 Wizard (Fire)[0m HIT [38;5;160men_2 Terrapinnikin (1000y)[0m 1->0 (-5) via none
+[97;41m*** KO: [38;5;160men_2 Terrapinnikin (1000y)[0m[0m
+[91mpc_1 Wizard (Fire)[0m waits.
+  [90m[Budget spent: 60 / 140][0m
+
+[1;97m=== RESULT ===[0m
+[92;1mWIN[0m
