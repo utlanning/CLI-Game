@@ -1,0 +1,278 @@
+using Isekai.VSlice.Core.Content.Dto;
+using Isekai.VSlice.Core.Runtime;
+
+namespace Isekai.VSlice.Core.Systems;
+
+public static class Resolver
+{
+    public static void StartOfTurn(BattleState s, ActorInstance a)
+    {
+        if (!a.IsAlive) return;
+
+        // Apply DoTs first (Burning)
+        var burn = a.GetStatus("st_burning");
+        if (burn is not null)
+        {
+            int dmg = 5 * Math.Max(1, burn.Stacks);
+            ApplyDamage(s, source: null, target: a, dmg, element: "fire", isDot: true);
+        }
+
+        // Decrement durations EXCEPT st_exposed (your rule: it persists until “not exposed”)
+        //for (int i = a.Statuses.Count - 1; i >= 0; i--)
+        //{
+        //    var st = a.Statuses[i];
+        //    if (st.Id == "st_exposed") continue; // sticky in v0
+        //    st.RemainingTurns -= 1;
+        //    if (st.RemainingTurns <= 0)
+        //       a.Statuses.RemoveAt(i);
+        //}
+    }
+
+    public static void EndOfTurn(BattleState s, ActorInstance a)
+{
+    if (!a.IsAlive) return;
+
+    for (int i = a.Statuses.Count - 1; i >= 0; i--)
+    {
+        var st = a.Statuses[i];
+        if (st.Id == "st_exposed") continue; // sticky by your rule
+        st.RemainingTurns -= 1;
+        if (st.RemainingTurns <= 0)
+            a.Statuses.RemoveAt(i);
+    }
+}
+
+    public static void ExecuteAbility(BattleState s, ActorInstance user, AbilityTemplateDto ab, ActorInstance target)
+    {
+        if (!user.IsAlive) return;
+        if (!target.IsAlive) return;
+
+        user.Mp -= ab.MpCost;
+        if (user.Mp < 0) user.Mp = 0;
+
+        // If user guards/braces, we treat that as “taking cover” and clear Exposed
+        if (ab.AbilityId is "ab_guard" or "ab_brace")
+            user.RemoveStatus("st_exposed");
+
+        switch (ab.Resolution.Type)
+        {
+            case "utility":
+                ApplyStatuses(s, user, target, ab.Resolution.ApplyStatuses);
+                if (ab.Resolution.Utility is not null)
+                {
+                    if (ab.Resolution.Utility.Kind == "free_step")
+                    {
+                        // v0: do nothing (movement handled by AI decision)
+                    }
+                    else if (ab.Resolution.Utility.Kind == "spawn_obstacle")
+                    {
+                        // v0: ignore (map is static in this slice)
+                    }
+                }
+                break;
+
+            case "cleanse":
+                DoCleanse(s, user, target, ab);
+                break;
+
+            case "heal":
+                DoHeal(s, user, target, ab);
+                break;
+
+            case "attack":
+                DoAttack(s, user, target, ab);
+                break;
+
+            default:
+                s.Log.Add($"[WARN] Unknown resolution type '{ab.Resolution.Type}' for {ab.AbilityId}");
+                break;
+        }
+    }
+
+    public static void ExecuteMove(BattleState s, ActorInstance a, int x, int y)
+    {
+        if (!a.IsAlive) return;
+        if (!s.InBounds(x, y)) return;
+        if (s.IsBlocked(x, y)) return;
+        if (s.ActorAt(x, y) is not null) return;
+
+        s.Log.Add($"{a.InstanceId} {a.Name} moves ({a.X},{a.Y}) -> ({x},{y})");
+        a.X = x;
+        a.Y = y;
+
+        // If you move (reposition), we keep Exposed unless you explicitly Guard/Brace.
+    }
+
+    private static void DoCleanse(BattleState s, ActorInstance user, ActorInstance target, AbilityTemplateDto ab)
+    {
+        int remove = ab.Resolution.Cleanse?.Remove ?? 1;
+        if (remove <= 0) return;
+
+        // Remove dispellable statuses, highest remaining first
+        var disp = target.Statuses
+            .Where(st => st.Template.Flags.Dispellable)
+            .OrderByDescending(st => st.RemainingTurns)
+            .Take(remove)
+            .ToList();
+
+        foreach (var st in disp)
+        {
+            target.Statuses.Remove(st);
+            s.Log.Add($"{user.InstanceId} {user.Name} cleanses {st.Id} from {target.InstanceId} {target.Name}");
+        }
+    }
+
+    private static void DoHeal(BattleState s, ActorInstance user, ActorInstance target, AbilityTemplateDto ab)
+    {
+        var h = ab.Resolution.Heal;
+        if (h is null) return;
+
+        int statVal = ReadStat(user, h.Stat);
+        int amt = (int)Math.Round(h.Base + statVal * h.Scale);
+
+        int before = target.Hp;
+        target.Hp = Math.Min(target.Template.BaseStats.MaxHp, target.Hp + Math.Max(0, amt));
+
+        s.Log.Add($"{user.InstanceId} {user.Name} uses {ab.AbilityId} on {target.InstanceId} {target.Name} HEAL {before}->{target.Hp}");
+    }
+
+    private static void DoAttack(BattleState s, ActorInstance user, ActorInstance target, AbilityTemplateDto ab)
+    {
+        // Hit check (simple)
+        double baseHit = 0.75;
+        double hitChance = Clamp(baseHit + user.AccuracyMod - target.EvasionMod, 0.05, 0.95);
+        bool hit = s.Rng.NextDouble() < hitChance;
+
+        if (!hit)
+        {
+            s.Log.Add($"{user.InstanceId} {user.Name} uses {ab.AbilityId} on {target.InstanceId} {target.Name} => MISS");
+            return;
+        }
+
+        bool crit = s.Rng.NextDouble() < 0.05;
+
+        int dmg = ComputeDamage(s, user, target, ab);
+        if (crit) dmg = (int)Math.Round(dmg * 1.5);
+
+        // v-slice rule: successful hit always deals at least 1 damage
+        if (dmg <= 0) dmg = 1;
+
+        ApplyDamage(s, user, target, dmg, element: ab.Resolution.Damage?.Elemental?.Element ?? "none", isDot: false);
+
+        // Lifesteal
+        if (ab.Resolution.Lifesteal is not null && dmg > 0)
+        {
+            int leeched = (int)Math.Round(dmg * ab.Resolution.Lifesteal.Fraction);
+            int before = user.Hp;
+            user.Hp = Math.Min(user.Template.BaseStats.MaxHp, user.Hp + Math.Max(0, leeched));
+            s.Log.Add($"  lifesteal: {user.InstanceId} {user.Name} {before}->{user.Hp} (+{leeched})");
+        }
+
+        // Apply statuses
+        ApplyStatuses(s, user, target, ab.Resolution.ApplyStatuses);
+    }
+
+    private static int ComputeDamage(BattleState s, ActorInstance user, ActorInstance target, AbilityTemplateDto ab)
+    {
+        int total = 0;
+
+        var dmg = ab.Resolution.Damage;
+        if (dmg is null) return 0;
+
+        if (dmg.Physical is not null)
+        {
+            int phys = PartDamage(user, dmg.Physical);
+            // Basic mitigation via DEF for physical
+            phys = Math.Max(0, phys - target.Def);
+            total += phys;
+        }
+
+        if (dmg.Elemental is not null)
+        {
+            int elem = PartDamage(user, dmg.Elemental);
+            // For v0: use half DEF as “generic resistance”
+            elem = Math.Max(0, elem - (target.Def / 2));
+            total += elem;
+        }
+
+        // Guarding reduces incoming damage
+        if (target.HasStatus("st_guarding"))
+            total = (int)Math.Round(total * 0.75);
+
+        // Exposed increases incoming damage
+        if (target.HasStatus("st_exposed"))
+            total = (int)Math.Round(total * 1.20);
+
+        return Math.Max(0, total);
+    }
+
+    private static int PartDamage(ActorInstance user, DamagePartDto part)
+    {
+        int statVal = ReadStat(user, part.Stat);
+        double raw = part.Base + statVal * part.Scale;
+        return Math.Max(0, (int)Math.Round(raw));
+    }
+
+    private static int ReadStat(ActorInstance user, string? stat)
+    {
+        return stat switch
+        {
+            "atk" => user.Atk,
+            "def" => user.Def,
+            "int" => user.Int,
+            "wis" => user.Wis,
+            "none" or null => 0,
+            _ => 0
+        };
+    }
+
+    private static void ApplyStatuses(BattleState s, ActorInstance user, ActorInstance target, List<ApplyStatusDto>? list)
+    {
+        if (list is null || list.Count == 0) return;
+
+        foreach (var app in list)
+        {
+            if (!s.Content.StatusById.TryGetValue(app.StatusId, out var tpl))
+            {
+                s.Log.Add($"[WARN] Missing status template '{app.StatusId}'");
+                continue;
+            }
+
+            var existing = target.GetStatus(app.StatusId);
+            if (existing is null)
+            {
+                target.Statuses.Add(new StatusInstance
+                {
+                    Template = tpl,
+                    Stacks = Math.Max(1, app.Stacks),
+                    RemainingTurns = Math.Max(1, app.Duration)
+                });
+            }
+            else
+            {
+                // v0 stacking: refresh duration, cap stacks
+                existing.Stacks = Math.Min(existing.Template.Stacking.Cap, Math.Max(existing.Stacks, app.Stacks));
+                existing.RemainingTurns = Math.Max(existing.RemainingTurns, app.Duration);
+            }
+
+            s.Log.Add($"  status: {target.InstanceId} {target.Name} gains {app.StatusId} (dur={app.Duration})");
+        }
+    }
+
+    private static void ApplyDamage(BattleState s, ActorInstance? source, ActorInstance target, int dmg, string element, bool isDot)
+    {
+        dmg = Math.Max(0, dmg);
+        int before = target.Hp;
+        target.Hp = Math.Max(0, target.Hp - dmg);
+
+        if (source is null)
+            s.Log.Add($"DOT {element}: {target.InstanceId} {target.Name} {before}->{target.Hp} (-{dmg})");
+        else
+            s.Log.Add($"{source.InstanceId} {source.Name} hits {target.InstanceId} {target.Name} {before}->{target.Hp} (-{dmg}) via {element}");
+
+        if (before > 0 && target.Hp == 0)
+            s.Log.Add($"*** KO: {target.InstanceId} {target.Name}");
+    }
+
+    private static double Clamp(double v, double lo, double hi) => (v < lo) ? lo : (v > hi) ? hi : v;
+}

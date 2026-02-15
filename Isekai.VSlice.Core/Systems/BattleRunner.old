@@ -1,0 +1,66 @@
+using Isekai.VSlice.Core.Runtime;
+using Isekai.VSlice.Core.Systems.Ai;
+
+namespace Isekai.VSlice.Core.Systems;
+
+public static class BattleRunner
+{
+    public static void RunAuto(BattleState s, int maxRounds = 200)
+    {
+        s.Log.AddHeader("BATTLE");
+
+        while (!s.IsWin && !s.IsLose && s.RoundCounter < maxRounds)
+        {
+            var actor = TurnEngine.GetNextReady(s);
+
+            if (!actor.IsAlive)
+            {
+                TurnEngine.ConsumeTurn(actor, TurnEngine.WaitCost);
+                continue;
+            }
+
+            s.RoundCounter++;
+
+            Resolver.StartOfTurn(s, actor);
+
+            if (!actor.IsAlive)
+            {
+                TurnEngine.ConsumeTurn(actor, TurnEngine.WaitCost);
+                continue;
+            }
+
+            int ctCost = TurnEngine.WaitCost;
+
+            var decision = AiV0.ChooseAction(s, actor);
+
+            if (decision.Kind == "move" && decision.MoveX.HasValue && decision.MoveY.HasValue)
+            {
+                int tilesMoved = s.Manhattan(actor.X, actor.Y, decision.MoveX.Value, decision.MoveY.Value);
+                Resolver.ExecuteMove(s, actor, decision.MoveX.Value, decision.MoveY.Value);
+                ctCost = Math.Max(TurnEngine.MoveCostPerTile, tilesMoved * TurnEngine.MoveCostPerTile);
+            }
+            else if (decision.Kind == "ability" && decision.AbilityId is not null && decision.Target is not null)
+            {
+                var ab = s.Content.AbilityById[decision.AbilityId];
+                s.Log.Add($"{actor.ColorTag} acts: {ab.AbilityId} -> {decision.Target.ColorTag}");
+                Resolver.ExecuteAbility(s, actor, ab, decision.Target);
+                ctCost = ab.CtCost;
+            }
+            else
+            {
+                s.Log.Add($"{actor.ColorTag} waits.");
+                ctCost = TurnEngine.WaitCost;
+            }
+
+            s.Log.Add($"  \x1b[90m[CT delay: {ctCost}]\x1b[0m");
+
+            Resolver.EndOfTurn(s, actor);
+            TurnEngine.ConsumeTurn(actor, ctCost);
+        }
+
+        s.Log.AddHeader("RESULT");
+        if (s.IsWin) s.Log.Add("\x1b[92;1mWIN\x1b[0m");
+        else if (s.IsLose) s.Log.Add("\x1b[91;1mLOSE\x1b[0m");
+        else s.Log.Add($"\x1b[93mABORT: reached max rounds {maxRounds}\x1b[0m");
+    }
+}

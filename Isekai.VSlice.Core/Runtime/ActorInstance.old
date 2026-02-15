@@ -1,0 +1,41 @@
+using Isekai.VSlice.Core.Content.Dto;
+
+namespace Isekai.VSlice.Core.Runtime;
+
+public sealed class ActorInstance
+{
+    public required string InstanceId { get; init; }     // unique in battle (e.g., "pc_0", "en_3")
+    public required ActorTemplateDto Template { get; init; }
+
+    public required int X { get; set; }
+    public required int Y { get; set; }
+
+    public required int Hp { get; set; }
+    public required int Mp { get; set; }
+    public required double Ct { get; set; } // 0..100+
+
+    public List<StatusInstance> Statuses { get; } = new();
+
+    public bool IsAlive => Hp > 0;
+
+    public string Faction => Template.Faction;
+    public string Name => Template.Name;
+
+    // Convenience
+    public int Speed => Template.BaseStats.Speed;
+    public int Atk => Template.BaseStats.Atk;
+    public int Def => Template.BaseStats.Def;
+    public int Int => Template.BaseStats.Int;
+    public int Wis => Template.BaseStats.Wis;
+
+    public double AccuracyMod => Template.BaseStats.AccuracyMod;
+    public double EvasionMod => Template.BaseStats.EvasionMod;
+
+    public bool HasStatus(string statusId) => Statuses.Any(s => s.Template.StatusId == statusId);
+
+    public bool UsedSkirmishThisContact { get; set; } = false;
+
+    public void RemoveStatus(string statusId) => Statuses.RemoveAll(s => s.Template.StatusId == statusId);
+
+    public StatusInstance? GetStatus(string statusId) => Statuses.FirstOrDefault(s => s.Template.StatusId == statusId);
+}

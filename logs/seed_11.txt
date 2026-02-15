@@ -1,0 +1,136 @@
+﻿
+=== SPAWN ===
+Encounter: enc_v0_baseline_01  Map: map_12x12_arena_01  Seed: 11
+Budget: 40  UnitCap: 10  DesiredEnemies: 4  Spawned: 4  BudgetLeft: 19
+pc_0   player Soldier (Tank)           HP=70 MP=12 SPD=8 @(1,10)
+pc_1   player Wizard (Fire)            HP=40 MP=36 SPD=10 @(2,10)
+pc_2   player Cleric (Grey)            HP=60 MP=20 SPD=8 @(1,11)
+pc_3   player Marksman (Crossbow)      HP=50 MP=12 SPD=16 @(2,11)
+en_0   enemy  Tiny Pteronura           HP=50 MP=12 SPD=14 @(11,0)
+en_1   enemy  Juvenile Hellbender      HP=60 MP=20 SPD=10 @(10,0)
+en_2   enemy  Kelpie Praestigii        HP=50 MP=24 SPD=12 @(10,2)
+en_3   enemy  Nascent Backahast        HP=40 MP=32 SPD=10 @(10,1)
+
+=== BATTLE ===
+pc_3 Marksman (Crossbow) moves (2,11) -> (6,11)
+en_0 Tiny Pteronura moves (11,0) -> (10,3)
+en_2 Kelpie Praestigii moves (10,2) -> (6,2)
+en_1 Juvenile Hellbender moves (10,0) -> (6,0)
+en_3 Nascent Backahast moves (10,1) -> (6,1)
+pc_1 Wizard (Fire) acts: ab_focus -> pc_1 Wizard (Fire)
+  status: pc_1 Wizard (Fire) gains st_focused (dur=4)
+pc_3 Marksman (Crossbow) moves (6,11) -> (6,7)
+pc_0 Soldier (Tank) moves (1,10) -> (4,9)
+pc_2 Cleric (Grey) moves (1,11) -> (5,11)
+en_0 Tiny Pteronura moves (10,3) -> (6,3)
+en_2 Kelpie Praestigii acts: ab_water_splash_los -> pc_3 Marksman (Crossbow)
+en_2 Kelpie Praestigii hits pc_3 Marksman (Crossbow) 50->34 (-16) via water
+pc_3 Marksman (Crossbow) acts: ab_shoot_xbow -> en_0 Tiny Pteronura
+pc_3 Marksman (Crossbow) uses ab_shoot_xbow on en_0 Tiny Pteronura => MISS
+en_1 Juvenile Hellbender moves (6,0) -> (7,3)
+en_3 Nascent Backahast acts: ab_wind_nip_los -> pc_3 Marksman (Crossbow)
+en_3 Nascent Backahast hits pc_3 Marksman (Crossbow) 34->18 (-16) via wind
+pc_1 Wizard (Fire) moves (2,10) -> (6,10)
+en_0 Tiny Pteronura acts: ab_throw_pebble -> pc_3 Marksman (Crossbow)
+en_0 Tiny Pteronura hits pc_3 Marksman (Crossbow) 18->16 (-2) via none
+pc_3 Marksman (Crossbow) acts: ab_shoot_xbow -> en_0 Tiny Pteronura
+pc_3 Marksman (Crossbow) uses ab_shoot_xbow on en_0 Tiny Pteronura => MISS
+en_2 Kelpie Praestigii acts: ab_water_splash_los -> pc_3 Marksman (Crossbow)
+en_2 Kelpie Praestigii uses ab_water_splash_los on pc_3 Marksman (Crossbow) => MISS
+pc_0 Soldier (Tank) moves (4,9) -> (5,6)
+pc_2 Cleric (Grey) acts: ab_heal -> pc_3 Marksman (Crossbow)
+pc_2 Cleric (Grey) uses ab_heal on pc_3 Marksman (Crossbow) HEAL 16->49
+en_0 Tiny Pteronura acts: ab_throw_pebble -> pc_0 Soldier (Tank)
+en_0 Tiny Pteronura hits pc_0 Soldier (Tank) 70->69 (-1) via none
+en_1 Juvenile Hellbender moves (7,3) -> (5,5)
+en_3 Nascent Backahast acts: ab_wind_nip_los -> pc_0 Soldier (Tank)
+en_3 Nascent Backahast hits pc_0 Soldier (Tank) 69->55 (-14) via wind
+pc_1 Wizard (Fire) acts: ab_firebolt -> en_1 Juvenile Hellbender
+pc_1 Wizard (Fire) uses ab_firebolt on en_1 Juvenile Hellbender => MISS
+pc_3 Marksman (Crossbow) acts: ab_shoot_xbow -> en_1 Juvenile Hellbender
+pc_3 Marksman (Crossbow) hits en_1 Juvenile Hellbender 60->50 (-10) via none
+en_2 Kelpie Praestigii acts: ab_water_splash_los -> pc_0 Soldier (Tank)
+en_2 Kelpie Praestigii hits pc_0 Soldier (Tank) 55->41 (-14) via water
+en_0 Tiny Pteronura acts: ab_throw_pebble -> pc_0 Soldier (Tank)
+en_0 Tiny Pteronura hits pc_0 Soldier (Tank) 41->40 (-1) via none
+pc_3 Marksman (Crossbow) acts: ab_shoot_xbow -> en_1 Juvenile Hellbender
+pc_3 Marksman (Crossbow) hits en_1 Juvenile Hellbender 50->40 (-10) via none
+pc_0 Soldier (Tank) acts: ab_attack_basic -> en_1 Juvenile Hellbender
+pc_0 Soldier (Tank) hits en_1 Juvenile Hellbender 40->26 (-14) via none
+pc_2 Cleric (Grey) acts: ab_heal -> pc_0 Soldier (Tank)
+pc_2 Cleric (Grey) uses ab_heal on pc_0 Soldier (Tank) HEAL 40->70
+en_1 Juvenile Hellbender acts: ab_attack_basic -> pc_0 Soldier (Tank)
+en_1 Juvenile Hellbender uses ab_attack_basic on pc_0 Soldier (Tank) => MISS
+en_3 Nascent Backahast acts: ab_wind_nip_los -> pc_0 Soldier (Tank)
+en_3 Nascent Backahast uses ab_wind_nip_los on pc_0 Soldier (Tank) => MISS
+pc_1 Wizard (Fire) acts: ab_firebolt -> en_1 Juvenile Hellbender
+pc_1 Wizard (Fire) hits en_1 Juvenile Hellbender 26->5 (-21) via fire
+  status: en_1 Juvenile Hellbender gains st_burning (dur=2)
+en_2 Kelpie Praestigii acts: ab_water_splash_los -> pc_0 Soldier (Tank)
+en_2 Kelpie Praestigii hits pc_0 Soldier (Tank) 70->56 (-14) via water
+en_0 Tiny Pteronura acts: ab_throw_pebble -> pc_0 Soldier (Tank)
+en_0 Tiny Pteronura hits pc_0 Soldier (Tank) 56->55 (-1) via none
+pc_3 Marksman (Crossbow) acts: ab_shoot_xbow -> en_1 Juvenile Hellbender
+pc_3 Marksman (Crossbow) hits en_1 Juvenile Hellbender 5->0 (-10) via none
+*** KO: en_1 Juvenile Hellbender
+pc_3 Marksman (Crossbow) acts: ab_shoot_xbow -> en_0 Tiny Pteronura
+pc_3 Marksman (Crossbow) hits en_0 Tiny Pteronura 50->38 (-12) via none
+en_2 Kelpie Praestigii acts: ab_slow_snare -> pc_0 Soldier (Tank)
+  status: pc_0 Soldier (Tank) gains st_slowed (dur=3)
+en_3 Nascent Backahast acts: ab_wind_nip_los -> pc_0 Soldier (Tank)
+en_3 Nascent Backahast hits pc_0 Soldier (Tank) 55->41 (-14) via wind
+pc_1 Wizard (Fire) acts: ab_focus -> pc_1 Wizard (Fire)
+  status: pc_1 Wizard (Fire) gains st_focused (dur=4)
+pc_0 Soldier (Tank) moves (5,6) -> (6,4)
+pc_2 Cleric (Grey) moves (5,11) -> (6,8)
+en_0 Tiny Pteronura acts: ab_throw_pebble -> pc_0 Soldier (Tank)
+en_0 Tiny Pteronura hits pc_0 Soldier (Tank) 41->40 (-1) via none
+pc_3 Marksman (Crossbow) acts: ab_shoot_xbow -> en_0 Tiny Pteronura
+pc_3 Marksman (Crossbow) hits en_0 Tiny Pteronura 38->26 (-12) via none
+en_0 Tiny Pteronura acts: ab_throw_pebble -> pc_0 Soldier (Tank)
+en_0 Tiny Pteronura hits pc_0 Soldier (Tank) 40->39 (-1) via none
+en_2 Kelpie Praestigii acts: ab_slow_snare -> pc_0 Soldier (Tank)
+  status: pc_0 Soldier (Tank) gains st_slowed (dur=3)
+en_3 Nascent Backahast acts: ab_wind_nip_los -> pc_0 Soldier (Tank)
+en_3 Nascent Backahast uses ab_wind_nip_los on pc_0 Soldier (Tank) => MISS
+pc_1 Wizard (Fire) moves (6,10) -> (7,7)
+pc_3 Marksman (Crossbow) acts: ab_shoot_xbow -> en_0 Tiny Pteronura
+pc_3 Marksman (Crossbow) hits en_0 Tiny Pteronura 26->14 (-12) via none
+pc_0 Soldier (Tank) acts: ab_attack_basic -> en_0 Tiny Pteronura
+pc_0 Soldier (Tank) hits en_0 Tiny Pteronura 14->0 (-16) via none
+*** KO: en_0 Tiny Pteronura
+pc_2 Cleric (Grey) moves (6,8) -> (6,6)
+en_2 Kelpie Praestigii acts: ab_slow_snare -> pc_0 Soldier (Tank)
+  status: pc_0 Soldier (Tank) gains st_slowed (dur=3)
+pc_3 Marksman (Crossbow) acts: ab_shoot_xbow -> en_2 Kelpie Praestigii
+pc_3 Marksman (Crossbow) hits en_2 Kelpie Praestigii 50->38 (-12) via none
+en_3 Nascent Backahast acts: ab_wind_nip_los -> pc_0 Soldier (Tank)
+en_3 Nascent Backahast uses ab_wind_nip_los on pc_0 Soldier (Tank) => MISS
+pc_1 Wizard (Fire) acts: ab_firebolt -> en_2 Kelpie Praestigii
+pc_1 Wizard (Fire) hits en_2 Kelpie Praestigii 38->16 (-22) via fire
+  status: en_2 Kelpie Praestigii gains st_burning (dur=2)
+pc_3 Marksman (Crossbow) acts: ab_shoot_xbow -> en_2 Kelpie Praestigii
+pc_3 Marksman (Crossbow) uses ab_shoot_xbow on en_2 Kelpie Praestigii => MISS
+pc_0 Soldier (Tank) moves (6,4) -> (6,3)
+pc_2 Cleric (Grey) moves (6,6) -> (6,4)
+DOT fire: en_2 Kelpie Praestigii 16->11 (-5)
+en_2 Kelpie Praestigii acts: ab_slow_snare -> pc_0 Soldier (Tank)
+  status: pc_0 Soldier (Tank) gains st_slowed (dur=3)
+en_3 Nascent Backahast moves (6,1) -> (7,3)
+pc_1 Wizard (Fire) acts: ab_firebolt -> en_3 Nascent Backahast
+pc_1 Wizard (Fire) hits en_3 Nascent Backahast 40->17 (-23) via fire
+  status: en_3 Nascent Backahast gains st_burning (dur=2)
+pc_3 Marksman (Crossbow) acts: ab_shoot_xbow -> en_2 Kelpie Praestigii
+pc_3 Marksman (Crossbow) uses ab_shoot_xbow on en_2 Kelpie Praestigii => MISS
+DOT fire: en_2 Kelpie Praestigii 11->6 (-5)
+en_2 Kelpie Praestigii acts: ab_slow_snare -> pc_0 Soldier (Tank)
+  status: pc_0 Soldier (Tank) gains st_slowed (dur=3)
+pc_3 Marksman (Crossbow) acts: ab_shoot_xbow -> en_2 Kelpie Praestigii
+pc_3 Marksman (Crossbow) hits en_2 Kelpie Praestigii 6->0 (-12) via none
+*** KO: en_2 Kelpie Praestigii
+pc_0 Soldier (Tank) acts: ab_attack_basic -> en_3 Nascent Backahast
+pc_0 Soldier (Tank) hits en_3 Nascent Backahast 17->0 (-18) via none
+*** KO: en_3 Nascent Backahast
+
+=== RESULT ===
+WIN

@@ -1,0 +1,650 @@
+[
+  {
+    "ability_id": "ab_attack_basic",
+    "name": "Basic Attack",
+    "ct_cost": 60,
+    "mp_cost": 0,
+    "targeting": {
+      "mode": "single",
+      "range": 1,
+      "requires_los": false
+    },
+    "resolution": {
+      "type": "attack",
+      "damage": {
+        "physical": {
+          "base": 18,
+          "stat": "atk",
+          "scale": 0.5
+        },
+        "elemental": {
+          "element": "none",
+          "base": 0,
+          "stat": "none",
+          "scale": 0.0
+        }
+      },
+      "apply_statuses": []
+    }
+  },
+  {
+    "ability_id": "ab_guard",
+    "name": "Guard",
+    "ct_cost": 50,
+    "mp_cost": 0,
+    "targeting": {
+      "mode": "self",
+      "range": 0,
+      "requires_los": false
+    },
+    "resolution": {
+      "type": "utility",
+      "apply_statuses": [
+        {
+          "status_id": "st_guarding",
+          "duration": 1,
+          "stacks": 1
+        }
+      ]
+    }
+  },
+  {
+    "ability_id": "ab_brace",
+    "name": "Brace",
+    "ct_cost": 55,
+    "mp_cost": 0,
+    "targeting": {
+      "mode": "self",
+      "range": 0,
+      "requires_los": false
+    },
+    "resolution": {
+      "type": "utility",
+      "apply_statuses": [
+        {
+          "status_id": "st_guarding",
+          "duration": 1,
+          "stacks": 1
+        },
+        {
+          "status_id": "st_immovable",
+          "duration": 1,
+          "stacks": 1
+        }
+      ]
+    }
+  },
+  {
+    "ability_id": "ab_interpose",
+    "name": "Interpose",
+    "ct_cost": 60,
+    "mp_cost": 0,
+    "targeting": {
+      "mode": "tile",
+      "range": 1,
+      "requires_los": false
+    },
+    "resolution": {
+      "type": "utility",
+      "utility": {
+        "kind": "spawn_obstacle",
+        "terrain": "half_wall",
+        "duration_turns": 1
+      }
+    }
+  },
+  {
+    "ability_id": "ab_focus",
+    "name": "Focus",
+    "ct_cost": 50,
+    "mp_cost": 4,
+    "targeting": {
+      "mode": "self",
+      "range": 0,
+      "requires_los": false
+    },
+    "resolution": {
+      "type": "utility",
+      "apply_statuses": [
+        {
+          "status_id": "st_focused",
+          "duration": 4,
+          "stacks": 1
+        }
+      ]
+    }
+  },
+  {
+    "ability_id": "ab_firebolt",
+    "name": "Firebolt",
+    "ct_cost": 65,
+    "mp_cost": 6,
+    "targeting": {
+      "mode": "single",
+      "range": 6,
+      "requires_los": true
+    },
+    "resolution": {
+      "type": "attack",
+      "damage": {
+        "physical": {
+          "base": 0,
+          "stat": "none",
+          "scale": 0.0
+        },
+        "elemental": {
+          "element": "fire",
+          "base": 16,
+          "stat": "int",
+          "scale": 0.6
+        }
+      },
+      "apply_statuses": [
+        {
+          "status_id": "st_burning",
+          "duration": 2,
+          "stacks": 1
+        }
+      ]
+    }
+  },
+  {
+    "ability_id": "ab_fireburst",
+    "name": "Fireburst (Eruption)",
+    "ct_cost": 80,
+    "mp_cost": 10,
+    "targeting": {
+      "mode": "aoe_radius_1",
+      "range": 5,
+      "requires_los": false
+    },
+    "resolution": {
+      "type": "attack",
+      "damage": {
+        "physical": {
+          "base": 0,
+          "stat": "none",
+          "scale": 0.0
+        },
+        "elemental": {
+          "element": "fire",
+          "base": 12,
+          "stat": "int",
+          "scale": 0.4
+        }
+      },
+      "apply_statuses": [
+        {
+          "status_id": "st_burning",
+          "duration": 1,
+          "stacks": 1
+        }
+      ]
+    }
+  },
+  {
+    "ability_id": "ab_heal",
+    "name": "Heal",
+    "ct_cost": 70,
+    "mp_cost": 8,
+    "targeting": {
+      "mode": "single_ally",
+      "range": 10,
+      "requires_los": false
+    },
+    "resolution": {
+      "type": "heal",
+      "heal": {
+        "base": 22,
+        "stat": "wis",
+        "scale": 0.7
+      }
+    }
+  },
+  {
+    "ability_id": "ab_cleanse",
+    "name": "Cleanse",
+    "ct_cost": 60,
+    "mp_cost": 6,
+    "targeting": {
+      "mode": "single_ally",
+      "range": 5,
+      "requires_los": false
+    },
+    "resolution": {
+      "type": "cleanse",
+      "cleanse": {
+        "remove": 1
+      }
+    }
+  },
+  {
+    "ability_id": "ab_smite_light",
+    "name": "Smite (Light)",
+    "ct_cost": 65,
+    "mp_cost": 7,
+    "targeting": {
+      "mode": "single",
+      "range": 5,
+      "requires_los": true
+    },
+    "resolution": {
+      "type": "attack",
+      "damage": {
+        "physical": {
+          "base": 0,
+          "stat": "none",
+          "scale": 0.0
+        },
+        "elemental": {
+          "element": "light",
+          "base": 14,
+          "stat": "wis",
+          "scale": 0.5
+        }
+      },
+      "apply_statuses": [
+        {
+          "status_id": "st_exposed",
+          "duration": 1,
+          "stacks": 1
+        }
+      ]
+    }
+  },
+  {
+    "ability_id": "ab_drain_dark",
+    "name": "Drain (Dark)",
+    "ct_cost": 75,
+    "mp_cost": 7,
+    "targeting": {
+      "mode": "single",
+      "range": 5,
+      "requires_los": true
+    },
+    "resolution": {
+      "type": "attack",
+      "damage": {
+        "physical": {
+          "base": 0,
+          "stat": "none",
+          "scale": 0.0
+        },
+        "elemental": {
+          "element": "dark",
+          "base": 12,
+          "stat": "wis",
+          "scale": 0.4
+        }
+      },
+      "lifesteal": {
+        "fraction": 0.5
+      },
+      "apply_statuses": [
+        {
+          "status_id": "st_weakened",
+          "duration": 2,
+          "stacks": 1
+        }
+      ]
+    }
+  },
+  {
+    "ability_id": "ab_shoot_xbow",
+    "name": "Shoot (Crossbow)",
+    "ct_cost": 60,
+    "mp_cost": 0,
+    "targeting": {
+      "mode": "single",
+      "range": 7,
+      "requires_los": true
+    },
+    "resolution": {
+      "type": "attack",
+      "damage": {
+        "physical": {
+          "base": 16,
+          "stat": "atk",
+          "scale": 0.5
+        },
+        "elemental": {
+          "element": "none",
+          "base": 0,
+          "stat": "none",
+          "scale": 0.0
+        }
+      },
+      "apply_statuses": []
+    }
+  },
+  {
+    "ability_id": "ab_mark_target",
+    "name": "Mark Target",
+    "ct_cost": 55,
+    "mp_cost": 0,
+    "targeting": {
+      "mode": "single",
+      "range": 7,
+      "requires_los": true
+    },
+    "resolution": {
+      "type": "utility",
+      "apply_statuses": [
+        {
+          "status_id": "st_marked",
+          "duration": 2,
+          "stacks": 1
+        }
+      ]
+    }
+  },
+  {
+    "ability_id": "ab_suppressing_bolt",
+    "name": "Suppressing Bolt",
+    "ct_cost": 70,
+    "mp_cost": 0,
+    "targeting": {
+      "mode": "single",
+      "range": 7,
+      "requires_los": true
+    },
+    "resolution": {
+      "type": "attack",
+      "damage": {
+        "physical": {
+          "base": 10,
+          "stat": "atk",
+          "scale": 0.3
+        },
+        "elemental": {
+          "element": "none",
+          "base": 0,
+          "stat": "none",
+          "scale": 0.0
+        }
+      },
+      "apply_statuses": [
+        {
+          "status_id": "st_slowed",
+          "duration": 3,
+          "stacks": 1
+        }
+      ]
+    }
+  },
+  {
+    "ability_id": "ab_skirmish_step",
+    "name": "Skirmish Step",
+    "ct_cost": 40,
+    "mp_cost": 0,
+    "targeting": {
+      "mode": "self",
+      "range": 0,
+      "requires_los": false
+    },
+    "resolution": {
+      "type": "utility",
+      "utility": {
+        "kind": "free_step",
+        "tiles": 1
+      }
+    }
+  },
+  {
+    "ability_id": "ab_throw_pebble",
+    "name": "Throw Pebble",
+    "ct_cost": 60,
+    "mp_cost": 0,
+    "targeting": {
+      "mode": "single",
+      "range": 6,
+      "requires_los": true
+    },
+    "resolution": {
+      "type": "attack",
+      "damage": {
+        "physical": {
+          "base": 10,
+          "stat": "atk",
+          "scale": 0.3
+        },
+        "elemental": {
+          "element": "none",
+          "base": 0,
+          "stat": "none",
+          "scale": 0.0
+        }
+      },
+      "apply_statuses": []
+    }
+  },
+  {
+    "ability_id": "ab_wind_nip_los",
+    "name": "Wind Nip (LoS)",
+    "ct_cost": 65,
+    "mp_cost": 5,
+    "targeting": {
+      "mode": "single",
+      "range": 6,
+      "requires_los": true
+    },
+    "resolution": {
+      "type": "attack",
+      "damage": {
+        "physical": {
+          "base": 0,
+          "stat": "none",
+          "scale": 0.0
+        },
+        "elemental": {
+          "element": "wind",
+          "base": 14,
+          "stat": "int",
+          "scale": 0.5
+        }
+      },
+      "apply_statuses": []
+    }
+  },
+  {
+    "ability_id": "ab_wind_eruption",
+    "name": "Wind Eruption",
+    "ct_cost": 75,
+    "mp_cost": 8,
+    "targeting": {
+      "mode": "single",
+      "range": 5,
+      "requires_los": false
+    },
+    "resolution": {
+      "type": "attack",
+      "damage": {
+        "physical": {
+          "base": 0,
+          "stat": "none",
+          "scale": 0.0
+        },
+        "elemental": {
+          "element": "wind",
+          "base": 12,
+          "stat": "int",
+          "scale": 0.4
+        }
+      },
+      "apply_statuses": []
+    }
+  },
+  {
+    "ability_id": "ab_water_splash_los",
+    "name": "Water Splash (LoS)",
+    "ct_cost": 65,
+    "mp_cost": 5,
+    "targeting": {
+      "mode": "single",
+      "range": 6,
+      "requires_los": true
+    },
+    "resolution": {
+      "type": "attack",
+      "damage": {
+        "physical": {
+          "base": 0,
+          "stat": "none",
+          "scale": 0.0
+        },
+        "elemental": {
+          "element": "water",
+          "base": 14,
+          "stat": "int",
+          "scale": 0.5
+        }
+      },
+      "apply_statuses": []
+    }
+  },
+  {
+    "ability_id": "ab_water_eruption",
+    "name": "Water Eruption",
+    "ct_cost": 75,
+    "mp_cost": 8,
+    "targeting": {
+      "mode": "single",
+      "range": 5,
+      "requires_los": false
+    },
+    "resolution": {
+      "type": "attack",
+      "damage": {
+        "physical": {
+          "base": 0,
+          "stat": "none",
+          "scale": 0.0
+        },
+        "elemental": {
+          "element": "water",
+          "base": 12,
+          "stat": "int",
+          "scale": 0.4
+        }
+      },
+      "apply_statuses": []
+    }
+  },
+  {
+    "ability_id": "ab_slow_snare",
+    "name": "Slow Snare",
+    "ct_cost": 70,
+    "mp_cost": 0,
+    "targeting": {
+      "mode": "single",
+      "range": 6,
+      "requires_los": false
+    },
+    "resolution": {
+      "type": "utility",
+      "apply_statuses": [
+        {
+          "status_id": "st_slowed",
+          "duration": 3,
+          "stacks": 1
+        }
+      ]
+    }
+  },
+  {
+    "ability_id": "ab_expose_sting",
+    "name": "Expose Sting",
+    "ct_cost": 65,
+    "mp_cost": 0,
+    "targeting": {
+      "mode": "single",
+      "range": 1,
+      "requires_los": false
+    },
+    "resolution": {
+      "type": "attack",
+      "damage": {
+        "physical": {
+          "base": 12,
+          "stat": "atk",
+          "scale": 0.4
+        },
+        "elemental": {
+          "element": "none",
+          "base": 0,
+          "stat": "none",
+          "scale": 0.0
+        }
+      },
+      "apply_statuses": [
+        {
+          "status_id": "st_exposed",
+          "duration": 1,
+          "stacks": 1
+        }
+      ]
+    }
+  },
+  {
+    "ability_id": "ab_weaken_sting",
+    "name": "Weaken Sting",
+    "ct_cost": 65,
+    "mp_cost": 0,
+    "targeting": {
+      "mode": "single",
+      "range": 1,
+      "requires_los": false
+    },
+    "resolution": {
+      "type": "attack",
+      "damage": {
+        "physical": {
+          "base": 10,
+          "stat": "atk",
+          "scale": 0.3
+        },
+        "elemental": {
+          "element": "none",
+          "base": 0,
+          "stat": "none",
+          "scale": 0.0
+        }
+      },
+      "apply_statuses": [
+        {
+          "status_id": "st_weakened",
+          "duration": 2,
+          "stacks": 1
+        }
+      ]
+    }
+  },
+  {
+    "ability_id": "ab_charge",
+    "name": "Charge",
+    "ct_cost": 75,
+    "mp_cost": 0,
+    "targeting": {
+      "mode": "single",
+      "range": 1,
+      "requires_los": false
+    },
+    "resolution": {
+      "type": "attack",
+      "damage": {
+        "physical": {
+          "base": 20,
+          "stat": "atk",
+          "scale": 0.6
+        },
+        "elemental": {
+          "element": "none",
+          "base": 0,
+          "stat": "none",
+          "scale": 0.0
+        }
+      },
+      "apply_statuses": []
+    }
+  }
+]

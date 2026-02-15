@@ -1,0 +1,285 @@
+[
+  {
+    "actor_template_id": "en_river_crab_01",
+    "name": "River Crab",
+    "faction": "enemy",
+    "tier": 1,
+    "size": "S",
+    "role_tags": [
+      "melee",
+      "dps"
+    ],
+    "ai_profile": "dps",
+    "base_stats": {
+      "max_hp": 60,
+      "max_mp": 12,
+      "atk": 12,
+      "def": 12,
+      "int": 6,
+      "wis": 6,
+      "accuracy_mod": 0.0,
+      "evasion_mod": 0.0,
+      "speed": 10
+    },
+    "abilities": [
+      "ab_attack_basic",
+      "ab_guard"
+    ],
+    "starting_statuses": []
+  },
+  {
+    "actor_template_id": "en_nascent_backahast_01",
+    "name": "Nascent Backahast",
+    "faction": "enemy",
+    "tier": 1,
+    "size": "S",
+    "role_tags": [
+      "caster",
+      "wind"
+    ],
+    "ai_profile": "caster",
+    "base_stats": {
+      "max_hp": 40,
+      "max_mp": 32,
+      "atk": 6,
+      "def": 8,
+      "int": 14,
+      "wis": 10,
+      "accuracy_mod": 0.0,
+      "evasion_mod": 0.0,
+      "speed": 10
+    },
+    "abilities": [
+      "ab_wind_nip_los",
+      "ab_wind_eruption"
+    ],
+    "starting_statuses": []
+  },
+  {
+    "actor_template_id": "en_juvenile_hellbender_01",
+    "name": "Juvenile Hellbender",
+    "faction": "enemy",
+    "tier": 1,
+    "size": "M",
+    "role_tags": [
+      "melee",
+      "status"
+    ],
+    "ai_profile": "hybrid",
+    "base_stats": {
+      "max_hp": 60,
+      "max_mp": 20,
+      "atk": 10,
+      "def": 12,
+      "int": 10,
+      "wis": 12,
+      "accuracy_mod": 0.0,
+      "evasion_mod": 0.0,
+      "speed": 10
+    },
+    "abilities": [
+      "ab_attack_basic",
+      "ab_weaken_sting"
+    ],
+    "starting_statuses": []
+  },
+  {
+    "actor_template_id": "en_terrapinnikin_1000_01",
+    "name": "Terrapinnikin (1000y)",
+    "faction": "enemy",
+    "tier": 2,
+    "size": "M",
+    "role_tags": [
+      "tank",
+      "melee"
+    ],
+    "ai_profile": "tank",
+    "base_stats": {
+      "max_hp": 80,
+      "max_mp": 12,
+      "atk": 12,
+      "def": 16,
+      "int": 6,
+      "wis": 6,
+      "accuracy_mod": 0.0,
+      "evasion_mod": 0.0,
+      "speed": 6
+    },
+    "abilities": [
+      "ab_guard",
+      "ab_brace",
+      "ab_attack_basic"
+    ],
+    "starting_statuses": []
+  },
+  {
+    "actor_template_id": "en_tiny_pteronura_01",
+    "name": "Tiny Pteronura",
+    "faction": "enemy",
+    "tier": 2,
+    "size": "S",
+    "role_tags": [
+      "ranged",
+      "status"
+    ],
+    "ai_profile": "hybrid",
+    "base_stats": {
+      "max_hp": 50,
+      "max_mp": 12,
+      "atk": 8,
+      "def": 10,
+      "int": 10,
+      "wis": 12,
+      "accuracy_mod": 0.0,
+      "evasion_mod": 0.0,
+      "speed": 14
+    },
+    "abilities": [
+      "ab_throw_pebble",
+      "ab_mark_target"
+    ],
+    "starting_statuses": []
+  },
+  {
+    "actor_template_id": "en_baby_cownose_01",
+    "name": "Baby Cownose",
+    "faction": "enemy",
+    "tier": 2,
+    "size": "M",
+    "role_tags": [
+      "caster",
+      "water"
+    ],
+    "ai_profile": "caster",
+    "base_stats": {
+      "max_hp": 60,
+      "max_mp": 24,
+      "atk": 8,
+      "def": 12,
+      "int": 14,
+      "wis": 10,
+      "accuracy_mod": 0.0,
+      "evasion_mod": 0.0,
+      "speed": 10
+    },
+    "abilities": [
+      "ab_water_splash_los",
+      "ab_water_eruption"
+    ],
+    "starting_statuses": []
+  },
+  {
+    "actor_template_id": "en_kelpie_praestigii_01",
+    "name": "Kelpie Praestigii",
+    "faction": "enemy",
+    "tier": 3,
+    "size": "M",
+    "role_tags": [
+      "caster",
+      "water",
+      "status"
+    ],
+    "ai_profile": "hybrid",
+    "base_stats": {
+      "max_hp": 50,
+      "max_mp": 24,
+      "atk": 8,
+      "def": 10,
+      "int": 14,
+      "wis": 12,
+      "accuracy_mod": 0.0,
+      "evasion_mod": 0.0,
+      "speed": 12
+    },
+    "abilities": [
+      "ab_water_splash_los",
+      "ab_slow_snare"
+    ],
+    "starting_statuses": []
+  },
+  {
+    "actor_template_id": "en_young_diamond_sturgeon_01",
+    "name": "Young Diamond Sturgeon",
+    "faction": "enemy",
+    "tier": 3,
+    "size": "L",
+    "role_tags": [
+      "bruiser",
+      "melee"
+    ],
+    "ai_profile": "dps",
+    "base_stats": {
+      "max_hp": 70,
+      "max_mp": 12,
+      "atk": 14,
+      "def": 14,
+      "int": 6,
+      "wis": 6,
+      "accuracy_mod": 0.0,
+      "evasion_mod": 0.0,
+      "speed": 8
+    },
+    "abilities": [
+      "ab_attack_basic",
+      "ab_charge"
+    ],
+    "starting_statuses": []
+  },
+  {
+    "actor_template_id": "en_hellbender_ambusher_01",
+    "name": "Hellbender Ambusher",
+    "faction": "enemy",
+    "tier": 4,
+    "size": "M",
+    "role_tags": [
+      "melee",
+      "status"
+    ],
+    "ai_profile": "hybrid",
+    "base_stats": {
+      "max_hp": 50,
+      "max_mp": 16,
+      "atk": 12,
+      "def": 10,
+      "int": 10,
+      "wis": 12,
+      "accuracy_mod": 0.0,
+      "evasion_mod": 0.0,
+      "speed": 14
+    },
+    "abilities": [
+      "ab_attack_basic",
+      "ab_expose_sting"
+    ],
+    "starting_statuses": []
+  },
+  {
+    "actor_template_id": "en_backahast_aetherii_01",
+    "name": "Backahast Aetherii",
+    "faction": "enemy",
+    "tier": 4,
+    "size": "M",
+    "role_tags": [
+      "caster",
+      "wind"
+    ],
+    "ai_profile": "caster",
+    "base_stats": {
+      "max_hp": 40,
+      "max_mp": 32,
+      "atk": 6,
+      "def": 8,
+      "int": 14,
+      "wis": 10,
+      "accuracy_mod": 0.0,
+      "evasion_mod": 0.0,
+      "speed": 12
+    },
+    "abilities": [
+      "ab_wind_nip_los",
+      "ab_wind_eruption",
+      "ab_focus"
+    ],
+    "starting_statuses": []
+  }
+]

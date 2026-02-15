@@ -1,0 +1,140 @@
+[
+  {
+    "actor_template_id": "pc_soldier_tnk_01",
+    "name": "Soldier (Tank)",
+    "faction": "player",
+    "tier": 1,
+    "size": "M",
+    "role_tags": [
+      "tank",
+      "melee"
+    ],
+    "base_stats": {
+      "max_hp": 70,
+      "max_mp": 12,
+      "atk": 16,
+      "def": 14,
+      "int": 6,
+      "wis": 6,
+      "accuracy_mod": 0.0,
+      "evasion_mod": 0.0,
+      "speed": 8
+    },
+    "abilities": [
+      "ab_attack_basic",
+      "ab_guard",
+      "ab_brace",
+      "ab_interpose"
+    ],
+    "starting_statuses": [],
+    "tags": [
+      "weapon:1hs",
+      "armor:heavy"
+    ]
+  },
+  {
+    "actor_template_id": "pc_wizard_fire_01",
+    "name": "Wizard (Fire)",
+    "faction": "player",
+    "tier": 1,
+    "size": "M",
+    "role_tags": [
+      "caster",
+      "fire"
+    ],
+    "base_stats": {
+      "max_hp": 40,
+      "max_mp": 36,
+      "atk": 6,
+      "def": 8,
+      "int": 18,
+      "wis": 8,
+      "accuracy_mod": 0.0,
+      "evasion_mod": 0.0,
+      "speed": 10
+    },
+    "abilities": [
+      "ab_attack_basic",
+      "ab_guard",
+      "ab_firebolt",
+      "ab_fireburst",
+      "ab_focus"
+    ],
+    "starting_statuses": [],
+    "tags": [
+      "weapon:implement",
+      "armor:light"
+    ]
+  },
+  {
+    "actor_template_id": "pc_cleric_grey_01",
+    "name": "Cleric (Grey)",
+    "faction": "player",
+    "tier": 1,
+    "size": "M",
+    "role_tags": [
+      "support",
+      "grey",
+      "light",
+      "dark"
+    ],
+    "base_stats": {
+      "max_hp": 60,
+      "max_mp": 20,
+      "atk": 8,
+      "def": 12,
+      "int": 10,
+      "wis": 16,
+      "accuracy_mod": 0.0,
+      "evasion_mod": 0.0,
+      "speed": 8
+    },
+    "abilities": [
+      "ab_attack_basic",
+      "ab_guard",
+      "ab_heal",
+      "ab_cleanse",
+      "ab_smite_light",
+      "ab_drain_dark"
+    ],
+    "starting_statuses": [],
+    "tags": [
+      "weapon:wand",
+      "armor:light"
+    ]
+  },
+  {
+    "actor_template_id": "pc_marksman_xbow_01",
+    "name": "Marksman (Crossbow)",
+    "faction": "player",
+    "tier": 1,
+    "size": "M",
+    "role_tags": [
+      "ranged"
+    ],
+    "base_stats": {
+      "max_hp": 50,
+      "max_mp": 12,
+      "atk": 12,
+      "def": 10,
+      "int": 8,
+      "wis": 10,
+      "accuracy_mod": 0.0,
+      "evasion_mod": 0.0,
+      "speed": 16
+    },
+    "abilities": [
+      "ab_attack_basic",
+      "ab_guard",
+      "ab_shoot_xbow",
+      "ab_mark_target",
+      "ab_suppressing_bolt",
+      "ab_skirmish_step"
+    ],
+    "starting_statuses": [],
+    "tags": [
+      "weapon:crossbow",
+      "armor:light"
+    ]
+  }
+]

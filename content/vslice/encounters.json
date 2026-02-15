@@ -1,0 +1,68 @@
+[
+  {
+    "encounter_template_id": "enc_v0_baseline_01",
+    "map_id": "map_12x12_arena_01",
+    "budget": 40,
+    "unit_cap": 10,
+    "enemy_palette_id": "pal_v0_mixed_1_4",
+    "spawn_rules": {
+      "player_spawn": "zone_A",
+      "enemy_spawn": "zone_B"
+    },
+    "composition": {
+      "min_role_tags": {
+        "ranged": 1,
+        "caster": 1
+      },
+      "max_role_tag_counts": {
+        "melee": 8
+      },
+      "max_same_template": 3,
+      "allow_fallback_if_budget_blocked": true
+    }
+  },
+  {
+    "encounter_template_id": "enc_v0_status_01",
+    "map_id": "map_12x12_arena_02",
+    "budget": 40,
+    "unit_cap": 10,
+    "enemy_palette_id": "pal_v0_status_1_4",
+    "spawn_rules": {
+      "player_spawn": "zone_A",
+      "enemy_spawn": "zone_B"
+    },
+    "composition": {
+      "min_role_tags": {
+        "ranged": 1,
+        "status": 1
+      },
+      "max_role_tag_counts": {
+        "melee": 8
+      },
+      "max_same_template": 3,
+      "allow_fallback_if_budget_blocked": true
+    }
+  },
+  {
+    "encounter_template_id": "enc_v0_elements_01",
+    "map_id": "map_12x12_arena_02",
+    "budget": 40,
+    "unit_cap": 10,
+    "enemy_palette_id": "pal_v0_elements_1_4",
+    "spawn_rules": {
+      "player_spawn": "zone_A",
+      "enemy_spawn": "zone_B"
+    },
+    "composition": {
+      "min_role_tags": {
+        "ranged": 1,
+        "hybrid": 1
+      },
+      "max_role_tag_counts": {
+        "melee": 8
+      },
+      "max_same_template": 3,
+      "allow_fallback_if_budget_blocked": true
+    }
+  }
+]

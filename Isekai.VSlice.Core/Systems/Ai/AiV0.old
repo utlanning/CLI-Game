@@ -1,0 +1,327 @@
+using Isekai.VSlice.Core.Content.Dto;
+using Isekai.VSlice.Core.Runtime;
+
+namespace Isekai.VSlice.Core.Systems.Ai;
+
+public static class AiV0
+{
+    public sealed record Decision(string Kind, string? AbilityId, ActorInstance? Target, int? MoveX, int? MoveY);
+
+    public const int MoveRange = 4;
+    private const int ThreatRange = 3;
+
+    // Path A (for now): hardcoded cleansable negative statuses.
+    // Path B later: add is_negative/is_cleansable flags in statuses.json and query them.
+    private static readonly HashSet<string> CleansableNegativeStatusIds =
+        new(StringComparer.Ordinal)
+        {
+            "st_slowed",
+            "st_weakened",
+            "st_sundered",
+            "st_blinded",
+            "st_silenced",
+            "st_cursed",
+        };
+
+    public static Decision ChooseAction(BattleState s, ActorInstance self)
+    {
+        if (!self.IsAlive) return new Decision("wait", null, null, null, null);
+
+        var enemies = (self.Faction == "player") ? s.AliveEnemies.ToList() : s.AlivePlayers.ToList();
+        if (enemies.Count == 0) return new Decision("wait", null, null, null, null);
+
+        bool threatened = IsThreatened(s, self, enemies);
+
+        // Skirmish contact-window reset: once you're NOT threatened, you get a fresh "step" later.
+        if (!threatened)
+            self.UsedSkirmishThisContact = false;
+
+        // Enemy rule: if an enemy can do any offensive action right now, it will not guard/brace this turn.
+        bool enemyHasOffenseNow = self.Faction.Equals("enemy", StringComparison.OrdinalIgnoreCase)
+                                 && HasAnyOffensiveActionNow(s, self, enemies);
+
+        // Option A: if we can do ANY offensive action right now, deprioritize self-buffs/util this decision.
+        bool hasOffenseNow = HasAnyOffensiveActionNow(s, self, enemies);
+
+        // 1) Try non-guard abilities first (always), in listed order
+        foreach (var abId in self.Template.Abilities)
+        {
+            if (IsPureDefense(abId)) continue;
+
+            if (!s.Content.AbilityById.TryGetValue(abId, out var ab)) continue;
+            if (self.Mp < ab.MpCost) continue;
+
+            // NEW: Skip Cleanse unless we actually have something cleansable.
+            if (string.Equals(ab.AbilityId, "ab_cleanse", StringComparison.Ordinal) && !HasCleansableNegative(self))
+                continue;
+
+            // A) free_step never chosen when not threatened
+            if (IsFreeStep(ab) && !threatened)
+                continue;
+
+            // Once per contact window if threatened
+            if (IsFreeStep(ab) && threatened && self.UsedSkirmishThisContact)
+                continue;
+
+            // Option A: if offense exists now, skip self buff/utility (Focus-class actions).
+            // Note: heals are not classified as buff/utility here.
+            if (hasOffenseNow && IsSelfBuffOrUtility(ab))
+                continue;
+
+            // Self-targeting gates
+            if (string.Equals(ab.Targeting.Mode, "self", StringComparison.OrdinalIgnoreCase))
+            {
+                if (IsRedundantSelfBuff(ab, self))
+                    continue;
+
+                // (If threatened, free_step may be allowed; if not threatened, it's already blocked above.)
+                if (IsPointlessFreeStep(s, self, ab, enemies, threatened))
+                    continue;
+
+                // heal-at-full is handled inside FindTargetForAbility
+            }
+
+            var (ok, target) = FindTargetForAbility(s, self, ab, enemies);
+            if (ok && target is not null)
+            {
+                if (IsFreeStep(ab) && threatened)
+                    self.UsedSkirmishThisContact = true;
+
+                return new Decision("ability", ab.AbilityId, target, null, null);
+            }
+        }
+
+        // 2) If no usable ability, move toward nearest enemy
+        var nearest = enemies
+            .OrderBy(e => s.Manhattan(self, e))
+            .ThenBy(e => e.InstanceId, StringComparer.Ordinal)
+            .First();
+
+        var (mx, my) = PathToward(s, self, nearest.X, nearest.Y, MoveRange);
+        if (mx != self.X || my != self.Y)
+            return new Decision("move", null, null, mx, my);
+
+        // 3) If we can't move, and we ARE threatened, allow Guard/Brace
+        // Enemy rule: if enemy has offense now, never guard.
+        if (threatened && !enemyHasOffenseNow)
+        {
+            foreach (var abId in self.Template.Abilities)
+            {
+                if (!IsPureDefense(abId)) continue;
+
+                if (!s.Content.AbilityById.TryGetValue(abId, out var ab)) continue;
+                if (self.Mp < ab.MpCost) continue;
+
+                var (ok, target) = FindTargetForAbility(s, self, ab, enemies);
+                if (ok && target is not null)
+                    return new Decision("ability", ab.AbilityId, target, null, null);
+            }
+        }
+
+        return new Decision("wait", null, null, null, null);
+    }
+
+    private static bool HasCleansableNegative(ActorInstance a)
+    {
+        foreach (var st in a.Statuses)
+            if (CleansableNegativeStatusIds.Contains(st.Id))
+                return true;
+        return false;
+    }
+
+    private static bool IsThreatened(BattleState s, ActorInstance self, List<ActorInstance> enemies)
+        => enemies.Any(e => e.IsAlive && s.Manhattan(self, e) <= ThreatRange);
+
+    private static bool IsPureDefense(string abilityId)
+        => abilityId is "ab_guard" or "ab_brace";
+
+    private static bool IsFreeStep(AbilityTemplateDto ab)
+        => ab.Resolution.Utility is not null
+           && string.Equals(ab.Resolution.Utility.Kind, "free_step", StringComparison.OrdinalIgnoreCase);
+
+    private static bool IsSelfBuffOrUtility(AbilityTemplateDto ab)
+    {
+        if (!string.Equals(ab.Targeting.Mode, "self", StringComparison.OrdinalIgnoreCase))
+            return false;
+
+        bool appliesStatus = ab.Resolution.ApplyStatuses is { Count: > 0 };
+        bool isUtility = ab.Resolution.Utility is not null;
+
+        // Heals are excluded: we still want emergency self-heals (if not full HP).
+        bool isHeal = string.Equals(ab.Resolution.Type, "heal", StringComparison.OrdinalIgnoreCase);
+
+        return !isHeal && (appliesStatus || isUtility);
+    }
+
+    private static bool HasAnyOffensiveActionNow(BattleState s, ActorInstance self, List<ActorInstance> enemies)
+    {
+        foreach (var abId in self.Template.Abilities)
+        {
+            if (IsPureDefense(abId)) continue;
+            if (!s.Content.AbilityById.TryGetValue(abId, out var ab)) continue;
+            if (self.Mp < ab.MpCost) continue;
+
+            bool isOffensive =
+                string.Equals(ab.Resolution.Type, "attack", StringComparison.OrdinalIgnoreCase) ||
+                (ab.Resolution.ApplyStatuses is { Count: > 0 } && !string.Equals(ab.Resolution.Type, "heal", StringComparison.OrdinalIgnoreCase));
+
+            if (!isOffensive) continue;
+
+            var (ok, tgt) = FindTargetForAbility(s, self, ab, enemies);
+            if (ok && tgt is not null && tgt != self)
+                return true;
+        }
+
+        return false;
+    }
+
+    private static (bool ok, ActorInstance? target) FindTargetForAbility(
+        BattleState s,
+        ActorInstance self,
+        AbilityTemplateDto ab,
+        List<ActorInstance> enemies)
+    {
+        if (string.Equals(ab.Targeting.Mode, "self", StringComparison.OrdinalIgnoreCase))
+        {
+            // Don't heal at full HP (prevents self-heal loops)
+            if (IsHealAtFullHp(ab, self))
+                return (false, null);
+
+            return (true, self);
+        }
+
+        bool wantsAlly = ab.Targeting.Mode.Contains("ally", StringComparison.OrdinalIgnoreCase);
+        var candidates = wantsAlly
+            ? s.AliveActors.Where(a => a.IsAlive && a.Faction == self.Faction).ToList()
+            : enemies;
+
+        foreach (var c in candidates
+                     .OrderBy(c => s.Manhattan(self, c))
+                     .ThenBy(c => c.InstanceId, StringComparer.Ordinal))
+        {
+            int dist = s.Manhattan(self, c);
+            if (dist > ab.Targeting.Range) continue;
+
+            if (ab.Targeting.RequiresLos && !Systems.Los.HasLineOfSight(s, self.X, self.Y, c.X, c.Y))
+                continue;
+
+            // If this is a heal, skip full-HP allies
+            if (wantsAlly && IsHealAtFullHp(ab, c))
+                continue;
+
+            return (true, c);
+        }
+
+        return (false, null);
+    }
+
+    private static (int x, int y) PathToward(BattleState s, ActorInstance self, int goalX, int goalY, int maxSteps)
+    {
+        var start = (self.X, self.Y);
+        var q = new Queue<(int x, int y)>();
+        var dist = new Dictionary<(int x, int y), int>();
+
+        q.Enqueue(start);
+        dist[start] = 0;
+
+        while (q.Count > 0)
+        {
+            var cur = q.Dequeue();
+            int d = dist[cur];
+            if (d == maxSteps) continue;
+
+            foreach (var n in s.Neighbors4(cur.x, cur.y))
+            {
+                if (!s.InBounds(n.x, n.y)) continue;
+                if (s.IsBlocked(n.x, n.y)) continue;
+
+                var occ = s.ActorAt(n.x, n.y);
+                if (occ is not null && occ != self) continue;
+
+                if (dist.ContainsKey((n.x, n.y))) continue;
+
+                dist[(n.x, n.y)] = d + 1;
+                q.Enqueue((n.x, n.y));
+            }
+        }
+
+        var best = start;
+        int bestScore = s.Manhattan(start.Item1, start.Item2, goalX, goalY);
+
+        foreach (var kv in dist)
+        {
+            var tile = kv.Key;
+            int steps = kv.Value;
+            if (steps > maxSteps) continue;
+
+            int score = s.Manhattan(tile.x, tile.y, goalX, goalY);
+            if (score < bestScore)
+            {
+                best = tile;
+                bestScore = score;
+            }
+        }
+
+        return best;
+    }
+
+    // --- Helpers (buff/heal gates) ---
+
+    private static bool IsHealAtFullHp(AbilityTemplateDto ab, ActorInstance target)
+    {
+        if (!string.Equals(ab.Resolution.Type, "heal", StringComparison.OrdinalIgnoreCase))
+            return false;
+
+        int maxHp = target.Template.BaseStats.MaxHp;
+        return target.Hp >= maxHp;
+    }
+
+    // Refresh only when RemainingTurns <= 1
+    private static bool IsRedundantSelfBuff(AbilityTemplateDto ab, ActorInstance self)
+    {
+        if (!string.Equals(ab.Targeting.Mode, "self", StringComparison.OrdinalIgnoreCase))
+            return false;
+
+        var apps = ab.Resolution.ApplyStatuses;
+        if (apps is null || apps.Count == 0) return false;
+
+        foreach (var ap in apps)
+        {
+            var existing = self.GetStatus(ap.StatusId);
+            if (existing is null) continue;
+            if (existing.RemainingTurns > 1)
+                return true;
+        }
+        return false;
+    }
+
+    private static bool IsPointlessFreeStep(BattleState s, ActorInstance self, AbilityTemplateDto ab, List<ActorInstance> enemies, bool threatened)
+    {
+        // Now that free_step is blocked when not threatened, this mainly prevents waste while threatened.
+        if (!string.Equals(ab.Targeting.Mode, "self", StringComparison.OrdinalIgnoreCase))
+            return false;
+
+        if (!IsFreeStep(ab)) return false;
+        if (!threatened) return true; // redundant safety: don't use it when not threatened
+
+        // If any offensive ability has a valid target right now, don't waste a turn stepping.
+        foreach (var abId in self.Template.Abilities)
+        {
+            if (IsPureDefense(abId)) continue;
+            if (!s.Content.AbilityById.TryGetValue(abId, out var off)) continue;
+            if (self.Mp < off.MpCost) continue;
+
+            bool isOffensive =
+                string.Equals(off.Resolution.Type, "attack", StringComparison.OrdinalIgnoreCase) ||
+                (off.Resolution.ApplyStatuses is { Count: > 0 } && !string.Equals(off.Resolution.Type, "heal", StringComparison.OrdinalIgnoreCase));
+
+            if (!isOffensive) continue;
+
+            var (ok, tgt) = FindTargetForAbility(s, self, off, enemies);
+            if (ok && tgt is not null && tgt != self)
+                return true;
+        }
+
+        return false;
+    }
+}

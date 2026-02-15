@@ -1,0 +1,343 @@
+﻿
+=== SPAWN ===
+Encounter: enc_v0_baseline_01  Map: map_12x12_arena_01  Seed: 16
+Budget: 40  UnitCap: 10  DesiredEnemies: 8  Spawned: 8  BudgetLeft: 4
+pc_0   player Soldier (Tank)           HP=70 MP=12 SPD=8 @(1,10)
+pc_1   player Wizard (Fire)            HP=40 MP=36 SPD=10 @(2,10)
+pc_2   player Cleric (Grey)            HP=60 MP=20 SPD=8 @(1,11)
+pc_3   player Marksman (Crossbow)      HP=50 MP=12 SPD=16 @(2,11)
+en_0   enemy  Tiny Pteronura           HP=50 MP=12 SPD=14 @(11,2)
+en_1   enemy  Baby Cownose             HP=60 MP=24 SPD=10 @(8,1)
+en_2   enemy  River Crab               HP=60 MP=12 SPD=10 @(10,2)
+en_3   enemy  River Crab               HP=60 MP=12 SPD=10 @(10,1)
+en_4   enemy  Terrapinnikin (1000y)    HP=80 MP=12 SPD=6 @(10,0)
+en_5   enemy  Nascent Backahast        HP=40 MP=32 SPD=10 @(8,0)
+en_6   enemy  River Crab               HP=60 MP=12 SPD=10 @(11,1)
+en_7   enemy  Tiny Pteronura           HP=50 MP=12 SPD=14 @(11,0)
+
+=== BATTLE ===
+pc_3 Marksman (Crossbow) moves (2,11) -> (6,11)
+en_0 Tiny Pteronura moves (11,2) -> (8,3)
+en_7 Tiny Pteronura waits.
+en_1 Baby Cownose moves (8,1) -> (6,3)
+en_2 River Crab moves (10,2) -> (6,2)
+en_3 River Crab moves (10,1) -> (6,1)
+en_5 Nascent Backahast moves (8,0) -> (7,3)
+en_6 River Crab moves (11,1) -> (7,1)
+pc_1 Wizard (Fire) acts: ab_focus -> pc_1 Wizard (Fire)
+  status: pc_1 Wizard (Fire) gains st_focused (dur=4)
+pc_3 Marksman (Crossbow) moves (6,11) -> (6,7)
+pc_0 Soldier (Tank) moves (1,10) -> (4,9)
+pc_2 Cleric (Grey) moves (1,11) -> (5,11)
+en_0 Tiny Pteronura acts: ab_throw_pebble -> pc_3 Marksman (Crossbow)
+en_0 Tiny Pteronura uses ab_throw_pebble on pc_3 Marksman (Crossbow) => MISS
+en_7 Tiny Pteronura moves (11,0) -> (8,1)
+en_4 Terrapinnikin (1000y) moves (10,0) -> (6,0)
+pc_3 Marksman (Crossbow) acts: ab_shoot_xbow -> en_1 Baby Cownose
+pc_3 Marksman (Crossbow) uses ab_shoot_xbow on en_1 Baby Cownose => MISS
+en_1 Baby Cownose acts: ab_water_splash_los -> pc_3 Marksman (Crossbow)
+en_1 Baby Cownose hits pc_3 Marksman (Crossbow) 50->34 (-16) via water
+en_2 River Crab moves (6,2) -> (6,4)
+en_3 River Crab moves (6,1) -> (5,4)
+en_5 Nascent Backahast acts: ab_wind_nip_los -> pc_3 Marksman (Crossbow)
+en_5 Nascent Backahast hits pc_3 Marksman (Crossbow) 34->18 (-16) via wind
+en_6 River Crab moves (7,1) -> (6,2)
+pc_1 Wizard (Fire) moves (2,10) -> (5,9)
+en_0 Tiny Pteronura acts: ab_throw_pebble -> pc_3 Marksman (Crossbow)
+en_0 Tiny Pteronura hits pc_3 Marksman (Crossbow) 18->16 (-2) via none
+en_7 Tiny Pteronura moves (8,1) -> (6,1)
+pc_3 Marksman (Crossbow) acts: ab_shoot_xbow -> en_2 River Crab
+pc_3 Marksman (Crossbow) uses ab_shoot_xbow on en_2 River Crab => MISS
+pc_0 Soldier (Tank) moves (4,9) -> (5,6)
+pc_2 Cleric (Grey) acts: ab_heal -> pc_3 Marksman (Crossbow)
+pc_2 Cleric (Grey) uses ab_heal on pc_3 Marksman (Crossbow) HEAL 16->49
+en_0 Tiny Pteronura acts: ab_throw_pebble -> pc_0 Soldier (Tank)
+en_0 Tiny Pteronura uses ab_throw_pebble on pc_0 Soldier (Tank) => MISS
+en_7 Tiny Pteronura acts: ab_throw_pebble -> pc_0 Soldier (Tank)
+en_7 Tiny Pteronura hits pc_0 Soldier (Tank) 70->69 (-1) via none
+en_1 Baby Cownose acts: ab_water_splash_los -> pc_0 Soldier (Tank)
+en_1 Baby Cownose hits pc_0 Soldier (Tank) 69->55 (-14) via water
+en_2 River Crab moves (6,4) -> (5,5)
+en_3 River Crab moves (5,4) -> (6,6)
+en_5 Nascent Backahast acts: ab_wind_nip_los -> pc_0 Soldier (Tank)
+en_5 Nascent Backahast hits pc_0 Soldier (Tank) 55->41 (-14) via wind
+en_6 River Crab moves (6,2) -> (5,4)
+pc_1 Wizard (Fire) acts: ab_firebolt -> en_2 River Crab
+pc_1 Wizard (Fire) hits en_2 River Crab 60->39 (-21) via fire
+  status: en_2 River Crab gains st_burning (dur=2)
+pc_3 Marksman (Crossbow) acts: ab_attack_basic -> en_3 River Crab
+pc_3 Marksman (Crossbow) hits en_3 River Crab 60->42 (-18) via none
+en_4 Terrapinnikin (1000y) moves (6,0) -> (5,3)
+en_0 Tiny Pteronura acts: ab_throw_pebble -> pc_0 Soldier (Tank)
+en_0 Tiny Pteronura uses ab_throw_pebble on pc_0 Soldier (Tank) => MISS
+en_7 Tiny Pteronura acts: ab_throw_pebble -> pc_0 Soldier (Tank)
+en_7 Tiny Pteronura hits pc_0 Soldier (Tank) 41->40 (-1) via none
+pc_0 Soldier (Tank) acts: ab_attack_basic -> en_2 River Crab
+pc_0 Soldier (Tank) hits en_2 River Crab 39->25 (-14) via none
+pc_2 Cleric (Grey) acts: ab_heal -> pc_0 Soldier (Tank)
+pc_2 Cleric (Grey) uses ab_heal on pc_0 Soldier (Tank) HEAL 40->70
+pc_3 Marksman (Crossbow) acts: ab_attack_basic -> en_3 River Crab
+pc_3 Marksman (Crossbow) uses ab_attack_basic on en_3 River Crab => MISS
+en_1 Baby Cownose acts: ab_water_splash_los -> pc_0 Soldier (Tank)
+en_1 Baby Cownose uses ab_water_splash_los on pc_0 Soldier (Tank) => MISS
+DOT fire: en_2 River Crab 25->20 (-5)
+en_2 River Crab acts: ab_attack_basic -> pc_0 Soldier (Tank)
+en_2 River Crab hits pc_0 Soldier (Tank) 70->60 (-10) via none
+en_3 River Crab acts: ab_attack_basic -> pc_0 Soldier (Tank)
+en_3 River Crab hits pc_0 Soldier (Tank) 60->50 (-10) via none
+en_5 Nascent Backahast acts: ab_wind_nip_los -> pc_0 Soldier (Tank)
+en_5 Nascent Backahast uses ab_wind_nip_los on pc_0 Soldier (Tank) => MISS
+en_6 River Crab moves (5,4) -> (4,6)
+pc_1 Wizard (Fire) acts: ab_firebolt -> en_2 River Crab
+pc_1 Wizard (Fire) hits en_2 River Crab 20->0 (-21) via fire
+*** KO: en_2 River Crab
+  status: en_2 River Crab gains st_burning (dur=2)
+en_0 Tiny Pteronura acts: ab_throw_pebble -> pc_0 Soldier (Tank)
+en_0 Tiny Pteronura hits pc_0 Soldier (Tank) 50->49 (-1) via none
+en_7 Tiny Pteronura acts: ab_throw_pebble -> pc_0 Soldier (Tank)
+en_7 Tiny Pteronura uses ab_throw_pebble on pc_0 Soldier (Tank) => MISS
+pc_3 Marksman (Crossbow) acts: ab_attack_basic -> en_3 River Crab
+pc_3 Marksman (Crossbow) hits en_3 River Crab 42->30 (-12) via none
+pc_0 Soldier (Tank) acts: ab_attack_basic -> en_3 River Crab
+pc_0 Soldier (Tank) hits en_3 River Crab 30->16 (-14) via none
+pc_2 Cleric (Grey) moves (5,11) -> (6,8)
+en_4 Terrapinnikin (1000y) moves (5,3) -> (5,5)
+en_0 Tiny Pteronura acts: ab_throw_pebble -> pc_0 Soldier (Tank)
+en_0 Tiny Pteronura hits pc_0 Soldier (Tank) 49->48 (-1) via none
+en_7 Tiny Pteronura acts: ab_throw_pebble -> pc_0 Soldier (Tank)
+en_7 Tiny Pteronura uses ab_throw_pebble on pc_0 Soldier (Tank) => MISS
+pc_3 Marksman (Crossbow) acts: ab_attack_basic -> en_3 River Crab
+pc_3 Marksman (Crossbow) hits en_3 River Crab 16->4 (-12) via none
+en_1 Baby Cownose acts: ab_water_splash_los -> pc_0 Soldier (Tank)
+en_1 Baby Cownose hits pc_0 Soldier (Tank) 48->34 (-14) via water
+en_3 River Crab acts: ab_attack_basic -> pc_0 Soldier (Tank)
+en_3 River Crab hits pc_0 Soldier (Tank) 34->24 (-10) via none
+en_5 Nascent Backahast acts: ab_wind_nip_los -> pc_0 Soldier (Tank)
+en_5 Nascent Backahast hits pc_0 Soldier (Tank) 24->10 (-14) via wind
+en_6 River Crab acts: ab_attack_basic -> pc_0 Soldier (Tank)
+en_6 River Crab uses ab_attack_basic on pc_0 Soldier (Tank) => MISS
+pc_1 Wizard (Fire) acts: ab_firebolt -> en_3 River Crab
+pc_1 Wizard (Fire) hits en_3 River Crab 4->0 (-21) via fire
+*** KO: en_3 River Crab
+  status: en_3 River Crab gains st_burning (dur=2)
+pc_3 Marksman (Crossbow) acts: ab_shoot_xbow -> en_4 Terrapinnikin (1000y)
+pc_3 Marksman (Crossbow) uses ab_shoot_xbow on en_4 Terrapinnikin (1000y) => MISS
+en_0 Tiny Pteronura acts: ab_throw_pebble -> pc_0 Soldier (Tank)
+en_0 Tiny Pteronura hits pc_0 Soldier (Tank) 10->9 (-1) via none
+en_7 Tiny Pteronura acts: ab_throw_pebble -> pc_0 Soldier (Tank)
+en_7 Tiny Pteronura hits pc_0 Soldier (Tank) 9->8 (-1) via none
+en_1 Baby Cownose moves (6,3) -> (6,6)
+en_5 Nascent Backahast acts: ab_wind_nip_los -> pc_0 Soldier (Tank)
+en_5 Nascent Backahast hits pc_0 Soldier (Tank) 8->0 (-14) via wind
+*** KO: pc_0 Soldier (Tank)
+en_6 River Crab moves (4,6) -> (5,7)
+pc_1 Wizard (Fire) acts: ab_firebolt -> en_6 River Crab
+pc_1 Wizard (Fire) uses ab_firebolt on en_6 River Crab => MISS
+pc_2 Cleric (Grey) moves (6,8) -> (7,6)
+pc_3 Marksman (Crossbow) acts: ab_attack_basic -> en_1 Baby Cownose
+pc_3 Marksman (Crossbow) hits en_1 Baby Cownose 60->48 (-12) via none
+en_0 Tiny Pteronura acts: ab_throw_pebble -> pc_2 Cleric (Grey)
+en_0 Tiny Pteronura hits pc_2 Cleric (Grey) 60->59 (-1) via none
+en_7 Tiny Pteronura acts: ab_throw_pebble -> pc_2 Cleric (Grey)
+en_7 Tiny Pteronura uses ab_throw_pebble on pc_2 Cleric (Grey) => MISS
+en_4 Terrapinnikin (1000y) moves (5,5) -> (7,5)
+pc_3 Marksman (Crossbow) acts: ab_attack_basic -> en_1 Baby Cownose
+pc_3 Marksman (Crossbow) uses ab_attack_basic on en_1 Baby Cownose => MISS
+en_1 Baby Cownose waits.
+en_5 Nascent Backahast acts: ab_wind_nip_los -> pc_2 Cleric (Grey)
+en_5 Nascent Backahast uses ab_wind_nip_los on pc_2 Cleric (Grey) => MISS
+en_6 River Crab acts: ab_attack_basic -> pc_3 Marksman (Crossbow)
+en_6 River Crab hits pc_3 Marksman (Crossbow) 49->35 (-14) via none
+pc_1 Wizard (Fire) acts: ab_firebolt -> en_6 River Crab
+pc_1 Wizard (Fire) hits en_6 River Crab 60->39 (-21) via fire
+  status: en_6 River Crab gains st_burning (dur=2)
+en_0 Tiny Pteronura acts: ab_throw_pebble -> pc_2 Cleric (Grey)
+en_0 Tiny Pteronura hits pc_2 Cleric (Grey) 59->58 (-1) via none
+en_7 Tiny Pteronura acts: ab_throw_pebble -> pc_2 Cleric (Grey)
+en_7 Tiny Pteronura hits pc_2 Cleric (Grey) 58->57 (-1) via none
+pc_2 Cleric (Grey) acts: ab_attack_basic -> en_1 Baby Cownose
+pc_2 Cleric (Grey) hits en_1 Baby Cownose 48->38 (-10) via none
+pc_3 Marksman (Crossbow) acts: ab_attack_basic -> en_1 Baby Cownose
+pc_3 Marksman (Crossbow) hits en_1 Baby Cownose 38->26 (-12) via none
+en_0 Tiny Pteronura acts: ab_throw_pebble -> pc_2 Cleric (Grey)
+en_0 Tiny Pteronura hits pc_2 Cleric (Grey) 57->56 (-1) via none
+en_7 Tiny Pteronura acts: ab_throw_pebble -> pc_2 Cleric (Grey)
+en_7 Tiny Pteronura hits pc_2 Cleric (Grey) 56->55 (-1) via none
+en_1 Baby Cownose waits.
+en_5 Nascent Backahast moves (7,3) -> (8,6)
+DOT fire: en_6 River Crab 39->34 (-5)
+en_6 River Crab acts: ab_attack_basic -> pc_3 Marksman (Crossbow)
+en_6 River Crab hits pc_3 Marksman (Crossbow) 35->21 (-14) via none
+pc_1 Wizard (Fire) moves (5,9) -> (5,8)
+pc_3 Marksman (Crossbow) acts: ab_attack_basic -> en_1 Baby Cownose
+pc_3 Marksman (Crossbow) hits en_1 Baby Cownose 26->14 (-12) via none
+en_4 Terrapinnikin (1000y) acts: ab_attack_basic -> pc_2 Cleric (Grey)
+en_4 Terrapinnikin (1000y) uses ab_attack_basic on pc_2 Cleric (Grey) => MISS
+en_0 Tiny Pteronura acts: ab_throw_pebble -> pc_2 Cleric (Grey)
+en_0 Tiny Pteronura hits pc_2 Cleric (Grey) 55->54 (-1) via none
+en_7 Tiny Pteronura acts: ab_throw_pebble -> pc_2 Cleric (Grey)
+en_7 Tiny Pteronura hits pc_2 Cleric (Grey) 54->53 (-1) via none
+pc_2 Cleric (Grey) acts: ab_attack_basic -> en_1 Baby Cownose
+pc_2 Cleric (Grey) uses ab_attack_basic on en_1 Baby Cownose => MISS
+pc_3 Marksman (Crossbow) acts: ab_attack_basic -> en_1 Baby Cownose
+pc_3 Marksman (Crossbow) hits en_1 Baby Cownose 14->2 (-12) via none
+en_1 Baby Cownose waits.
+en_5 Nascent Backahast waits.
+DOT fire: en_6 River Crab 34->29 (-5)
+en_6 River Crab acts: ab_attack_basic -> pc_1 Wizard (Fire)
+en_6 River Crab hits pc_1 Wizard (Fire) 40->24 (-16) via none
+pc_1 Wizard (Fire) acts: ab_attack_basic -> en_6 River Crab
+pc_1 Wizard (Fire) uses ab_attack_basic on en_6 River Crab => MISS
+en_0 Tiny Pteronura acts: ab_throw_pebble -> pc_2 Cleric (Grey)
+en_0 Tiny Pteronura hits pc_2 Cleric (Grey) 53->52 (-1) via none
+en_7 Tiny Pteronura acts: ab_throw_pebble -> pc_2 Cleric (Grey)
+en_7 Tiny Pteronura hits pc_2 Cleric (Grey) 52->51 (-1) via none
+pc_3 Marksman (Crossbow) acts: ab_attack_basic -> en_1 Baby Cownose
+pc_3 Marksman (Crossbow) uses ab_attack_basic on en_1 Baby Cownose => MISS
+en_4 Terrapinnikin (1000y) acts: ab_attack_basic -> pc_2 Cleric (Grey)
+en_4 Terrapinnikin (1000y) hits pc_2 Cleric (Grey) 51->39 (-12) via none
+pc_2 Cleric (Grey) acts: ab_attack_basic -> en_1 Baby Cownose
+pc_2 Cleric (Grey) uses ab_attack_basic on en_1 Baby Cownose => MISS
+pc_3 Marksman (Crossbow) acts: ab_attack_basic -> en_1 Baby Cownose
+pc_3 Marksman (Crossbow) hits en_1 Baby Cownose 2->0 (-12) via none
+*** KO: en_1 Baby Cownose
+en_0 Tiny Pteronura acts: ab_throw_pebble -> pc_2 Cleric (Grey)
+en_0 Tiny Pteronura hits pc_2 Cleric (Grey) 39->38 (-1) via none
+en_7 Tiny Pteronura acts: ab_throw_pebble -> pc_2 Cleric (Grey)
+en_7 Tiny Pteronura hits pc_2 Cleric (Grey) 38->37 (-1) via none
+en_5 Nascent Backahast waits.
+en_6 River Crab acts: ab_attack_basic -> pc_1 Wizard (Fire)
+en_6 River Crab hits pc_1 Wizard (Fire) 24->8 (-16) via none
+pc_1 Wizard (Fire) acts: ab_attack_basic -> en_6 River Crab
+pc_1 Wizard (Fire) uses ab_attack_basic on en_6 River Crab => MISS
+pc_3 Marksman (Crossbow) acts: ab_attack_basic -> en_6 River Crab
+pc_3 Marksman (Crossbow) hits en_6 River Crab 29->17 (-12) via none
+en_0 Tiny Pteronura acts: ab_throw_pebble -> pc_2 Cleric (Grey)
+en_0 Tiny Pteronura hits pc_2 Cleric (Grey) 37->36 (-1) via none
+en_7 Tiny Pteronura acts: ab_throw_pebble -> pc_2 Cleric (Grey)
+en_7 Tiny Pteronura uses ab_throw_pebble on pc_2 Cleric (Grey) => MISS
+en_5 Nascent Backahast waits.
+en_6 River Crab acts: ab_attack_basic -> pc_1 Wizard (Fire)
+en_6 River Crab hits pc_1 Wizard (Fire) 8->0 (-16) via none
+*** KO: pc_1 Wizard (Fire)
+pc_2 Cleric (Grey) acts: ab_attack_basic -> en_4 Terrapinnikin (1000y)
+pc_2 Cleric (Grey) hits en_4 Terrapinnikin (1000y) 80->74 (-6) via none
+pc_3 Marksman (Crossbow) acts: ab_attack_basic -> en_6 River Crab
+pc_3 Marksman (Crossbow) hits en_6 River Crab 17->5 (-12) via none
+en_0 Tiny Pteronura acts: ab_throw_pebble -> pc_2 Cleric (Grey)
+en_0 Tiny Pteronura hits pc_2 Cleric (Grey) 36->35 (-1) via none
+en_7 Tiny Pteronura acts: ab_throw_pebble -> pc_2 Cleric (Grey)
+en_7 Tiny Pteronura uses ab_throw_pebble on pc_2 Cleric (Grey) => MISS
+en_4 Terrapinnikin (1000y) acts: ab_attack_basic -> pc_2 Cleric (Grey)
+en_4 Terrapinnikin (1000y) uses ab_attack_basic on pc_2 Cleric (Grey) => MISS
+pc_3 Marksman (Crossbow) acts: ab_attack_basic -> en_6 River Crab
+pc_3 Marksman (Crossbow) hits en_6 River Crab 5->0 (-12) via none
+*** KO: en_6 River Crab
+en_5 Nascent Backahast waits.
+en_0 Tiny Pteronura acts: ab_throw_pebble -> pc_2 Cleric (Grey)
+en_0 Tiny Pteronura hits pc_2 Cleric (Grey) 35->34 (-1) via none
+en_7 Tiny Pteronura acts: ab_throw_pebble -> pc_2 Cleric (Grey)
+en_7 Tiny Pteronura hits pc_2 Cleric (Grey) 34->33 (-1) via none
+pc_2 Cleric (Grey) acts: ab_attack_basic -> en_4 Terrapinnikin (1000y)
+pc_2 Cleric (Grey) uses ab_attack_basic on en_4 Terrapinnikin (1000y) => MISS
+pc_3 Marksman (Crossbow) acts: ab_shoot_xbow -> en_4 Terrapinnikin (1000y)
+pc_3 Marksman (Crossbow) hits en_4 Terrapinnikin (1000y) 74->68 (-6) via none
+en_0 Tiny Pteronura acts: ab_throw_pebble -> pc_2 Cleric (Grey)
+en_0 Tiny Pteronura hits pc_2 Cleric (Grey) 33->32 (-1) via none
+en_7 Tiny Pteronura acts: ab_throw_pebble -> pc_2 Cleric (Grey)
+en_7 Tiny Pteronura hits pc_2 Cleric (Grey) 32->31 (-1) via none
+en_5 Nascent Backahast waits.
+pc_3 Marksman (Crossbow) acts: ab_shoot_xbow -> en_4 Terrapinnikin (1000y)
+pc_3 Marksman (Crossbow) hits en_4 Terrapinnikin (1000y) 68->62 (-6) via none
+en_4 Terrapinnikin (1000y) acts: ab_attack_basic -> pc_2 Cleric (Grey)
+en_4 Terrapinnikin (1000y) hits pc_2 Cleric (Grey) 31->19 (-12) via none
+en_0 Tiny Pteronura acts: ab_throw_pebble -> pc_2 Cleric (Grey)
+en_0 Tiny Pteronura hits pc_2 Cleric (Grey) 19->18 (-1) via none
+en_7 Tiny Pteronura acts: ab_throw_pebble -> pc_2 Cleric (Grey)
+en_7 Tiny Pteronura uses ab_throw_pebble on pc_2 Cleric (Grey) => MISS
+pc_2 Cleric (Grey) acts: ab_attack_basic -> en_4 Terrapinnikin (1000y)
+pc_2 Cleric (Grey) hits en_4 Terrapinnikin (1000y) 62->56 (-6) via none
+pc_3 Marksman (Crossbow) acts: ab_shoot_xbow -> en_4 Terrapinnikin (1000y)
+pc_3 Marksman (Crossbow) uses ab_shoot_xbow on en_4 Terrapinnikin (1000y) => MISS
+en_5 Nascent Backahast waits.
+en_0 Tiny Pteronura acts: ab_throw_pebble -> pc_2 Cleric (Grey)
+en_0 Tiny Pteronura hits pc_2 Cleric (Grey) 18->17 (-1) via none
+en_7 Tiny Pteronura acts: ab_throw_pebble -> pc_2 Cleric (Grey)
+en_7 Tiny Pteronura hits pc_2 Cleric (Grey) 17->16 (-1) via none
+pc_3 Marksman (Crossbow) acts: ab_shoot_xbow -> en_4 Terrapinnikin (1000y)
+pc_3 Marksman (Crossbow) uses ab_shoot_xbow on en_4 Terrapinnikin (1000y) => MISS
+en_4 Terrapinnikin (1000y) acts: ab_attack_basic -> pc_2 Cleric (Grey)
+en_4 Terrapinnikin (1000y) hits pc_2 Cleric (Grey) 16->4 (-12) via none
+pc_2 Cleric (Grey) acts: ab_attack_basic -> en_4 Terrapinnikin (1000y)
+pc_2 Cleric (Grey) hits en_4 Terrapinnikin (1000y) 56->50 (-6) via none
+pc_3 Marksman (Crossbow) acts: ab_shoot_xbow -> en_4 Terrapinnikin (1000y)
+pc_3 Marksman (Crossbow) hits en_4 Terrapinnikin (1000y) 50->44 (-6) via none
+en_5 Nascent Backahast waits.
+en_0 Tiny Pteronura acts: ab_throw_pebble -> pc_2 Cleric (Grey)
+en_0 Tiny Pteronura hits pc_2 Cleric (Grey) 4->3 (-1) via none
+en_7 Tiny Pteronura acts: ab_throw_pebble -> pc_2 Cleric (Grey)
+en_7 Tiny Pteronura hits pc_2 Cleric (Grey) 3->2 (-1) via none
+pc_3 Marksman (Crossbow) acts: ab_shoot_xbow -> en_4 Terrapinnikin (1000y)
+pc_3 Marksman (Crossbow) hits en_4 Terrapinnikin (1000y) 44->35 (-9) via none
+en_0 Tiny Pteronura acts: ab_throw_pebble -> pc_2 Cleric (Grey)
+en_0 Tiny Pteronura hits pc_2 Cleric (Grey) 2->1 (-1) via none
+en_7 Tiny Pteronura acts: ab_throw_pebble -> pc_2 Cleric (Grey)
+en_7 Tiny Pteronura hits pc_2 Cleric (Grey) 1->0 (-1) via none
+*** KO: pc_2 Cleric (Grey)
+en_5 Nascent Backahast moves (8,6) -> (6,6)
+pc_3 Marksman (Crossbow) acts: ab_attack_basic -> en_5 Nascent Backahast
+pc_3 Marksman (Crossbow) hits en_5 Nascent Backahast 40->24 (-16) via none
+en_0 Tiny Pteronura acts: ab_throw_pebble -> pc_3 Marksman (Crossbow)
+en_0 Tiny Pteronura hits pc_3 Marksman (Crossbow) 21->19 (-2) via none
+en_7 Tiny Pteronura acts: ab_throw_pebble -> pc_3 Marksman (Crossbow)
+en_7 Tiny Pteronura hits pc_3 Marksman (Crossbow) 19->17 (-2) via none
+en_4 Terrapinnikin (1000y) moves (7,5) -> (7,7)
+pc_3 Marksman (Crossbow) acts: ab_attack_basic -> en_4 Terrapinnikin (1000y)
+pc_3 Marksman (Crossbow) uses ab_attack_basic on en_4 Terrapinnikin (1000y) => MISS
+en_5 Nascent Backahast waits.
+en_0 Tiny Pteronura acts: ab_throw_pebble -> pc_3 Marksman (Crossbow)
+en_0 Tiny Pteronura hits pc_3 Marksman (Crossbow) 17->15 (-2) via none
+en_7 Tiny Pteronura acts: ab_throw_pebble -> pc_3 Marksman (Crossbow)
+en_7 Tiny Pteronura uses ab_throw_pebble on pc_3 Marksman (Crossbow) => MISS
+pc_3 Marksman (Crossbow) acts: ab_attack_basic -> en_4 Terrapinnikin (1000y)
+pc_3 Marksman (Crossbow) hits en_4 Terrapinnikin (1000y) 35->27 (-8) via none
+en_0 Tiny Pteronura acts: ab_throw_pebble -> pc_3 Marksman (Crossbow)
+en_0 Tiny Pteronura hits pc_3 Marksman (Crossbow) 15->13 (-2) via none
+en_7 Tiny Pteronura acts: ab_throw_pebble -> pc_3 Marksman (Crossbow)
+en_7 Tiny Pteronura hits pc_3 Marksman (Crossbow) 13->11 (-2) via none
+en_5 Nascent Backahast waits.
+pc_3 Marksman (Crossbow) acts: ab_attack_basic -> en_4 Terrapinnikin (1000y)
+pc_3 Marksman (Crossbow) hits en_4 Terrapinnikin (1000y) 27->19 (-8) via none
+en_4 Terrapinnikin (1000y) acts: ab_attack_basic -> pc_3 Marksman (Crossbow)
+en_4 Terrapinnikin (1000y) uses ab_attack_basic on pc_3 Marksman (Crossbow) => MISS
+en_0 Tiny Pteronura acts: ab_throw_pebble -> pc_3 Marksman (Crossbow)
+en_0 Tiny Pteronura hits pc_3 Marksman (Crossbow) 11->9 (-2) via none
+en_7 Tiny Pteronura acts: ab_throw_pebble -> pc_3 Marksman (Crossbow)
+en_7 Tiny Pteronura uses ab_throw_pebble on pc_3 Marksman (Crossbow) => MISS
+pc_3 Marksman (Crossbow) acts: ab_attack_basic -> en_4 Terrapinnikin (1000y)
+pc_3 Marksman (Crossbow) hits en_4 Terrapinnikin (1000y) 19->11 (-8) via none
+en_5 Nascent Backahast waits.
+en_0 Tiny Pteronura acts: ab_throw_pebble -> pc_3 Marksman (Crossbow)
+en_0 Tiny Pteronura hits pc_3 Marksman (Crossbow) 9->7 (-2) via none
+en_7 Tiny Pteronura acts: ab_throw_pebble -> pc_3 Marksman (Crossbow)
+en_7 Tiny Pteronura hits pc_3 Marksman (Crossbow) 7->5 (-2) via none
+pc_3 Marksman (Crossbow) acts: ab_attack_basic -> en_4 Terrapinnikin (1000y)
+pc_3 Marksman (Crossbow) hits en_4 Terrapinnikin (1000y) 11->3 (-8) via none
+en_0 Tiny Pteronura acts: ab_throw_pebble -> pc_3 Marksman (Crossbow)
+en_0 Tiny Pteronura hits pc_3 Marksman (Crossbow) 5->3 (-2) via none
+en_7 Tiny Pteronura acts: ab_throw_pebble -> pc_3 Marksman (Crossbow)
+en_7 Tiny Pteronura hits pc_3 Marksman (Crossbow) 3->1 (-2) via none
+en_5 Nascent Backahast waits.
+en_4 Terrapinnikin (1000y) acts: ab_attack_basic -> pc_3 Marksman (Crossbow)
+en_4 Terrapinnikin (1000y) uses ab_attack_basic on pc_3 Marksman (Crossbow) => MISS
+pc_3 Marksman (Crossbow) acts: ab_attack_basic -> en_4 Terrapinnikin (1000y)
+pc_3 Marksman (Crossbow) uses ab_attack_basic on en_4 Terrapinnikin (1000y) => MISS
+pc_3 Marksman (Crossbow) acts: ab_attack_basic -> en_4 Terrapinnikin (1000y)
+pc_3 Marksman (Crossbow) hits en_4 Terrapinnikin (1000y) 3->0 (-8) via none
+*** KO: en_4 Terrapinnikin (1000y)
+en_0 Tiny Pteronura acts: ab_throw_pebble -> pc_3 Marksman (Crossbow)
+en_0 Tiny Pteronura hits pc_3 Marksman (Crossbow) 1->0 (-2) via none
+*** KO: pc_3 Marksman (Crossbow)
+
+=== RESULT ===
+LOSE

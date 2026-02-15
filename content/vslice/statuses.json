@@ -1,0 +1,190 @@
+[
+  {
+    "status_id": "st_guarding",
+    "name": "Guarding",
+    "duration_type": "turns",
+    "default_duration": 1,
+    "stacking": {
+      "mode": "refresh",
+      "cap": 1,
+      "refresh_rule": "refresh_duration"
+    },
+    "contradictions": [],
+    "effects": [
+      {
+        "type": "incoming_damage_mult",
+        "mult": 0.75
+      }
+    ],
+    "flags": {
+      "dispellable": true,
+      "unique": false
+    }
+  },
+  {
+    "status_id": "st_immovable",
+    "name": "Immovable",
+    "duration_type": "turns",
+    "default_duration": 1,
+    "stacking": {
+      "mode": "refresh",
+      "cap": 1,
+      "refresh_rule": "refresh_duration"
+    },
+    "contradictions": [],
+    "effects": [
+      {
+        "type": "flag",
+        "flag": "immovable",
+        "value": true
+      }
+    ],
+    "flags": {
+      "dispellable": true,
+      "unique": false
+    }
+  },
+  {
+    "status_id": "st_burning",
+    "name": "Burning",
+    "duration_type": "turns",
+    "default_duration": 2,
+    "stacking": {
+      "mode": "refresh",
+      "cap": 1,
+      "refresh_rule": "refresh_duration"
+    },
+    "contradictions": [],
+    "effects": [
+      {
+        "type": "dot",
+        "amount": 5,
+        "timing": "start_of_turn"
+      }
+    ],
+    "flags": {
+      "dispellable": true,
+      "unique": false
+    }
+  },
+  {
+    "status_id": "st_focused",
+    "name": "Focused",
+    "duration_type": "turns",
+    "default_duration": 4,
+    "stacking": {
+      "mode": "refresh",
+      "cap": 1,
+      "refresh_rule": "refresh_duration"
+    },
+    "contradictions": [],
+    "effects": [
+      {
+        "type": "accuracy_add",
+        "amount": 0.1
+      },
+      {
+        "type": "elemental_damage_mult",
+        "mult": 1.1
+      }
+    ],
+    "flags": {
+      "dispellable": true,
+      "unique": false
+    }
+  },
+  {
+    "status_id": "st_marked",
+    "name": "Marked",
+    "duration_type": "turns",
+    "default_duration": 2,
+    "stacking": {
+      "mode": "refresh",
+      "cap": 1,
+      "refresh_rule": "refresh_duration"
+    },
+    "contradictions": [],
+    "effects": [
+      {
+        "type": "attacker_hit_bonus_vs_target",
+        "amount": 0.1
+      },
+      {
+        "type": "attacker_crit_bonus_vs_target",
+        "amount": 0.05
+      }
+    ],
+    "flags": {
+      "dispellable": true,
+      "unique": false
+    }
+  },
+  {
+    "status_id": "st_slowed",
+    "name": "Slowed",
+    "duration_type": "turns",
+    "default_duration": 3,
+    "stacking": {
+      "mode": "refresh",
+      "cap": 1,
+      "refresh_rule": "refresh_duration"
+    },
+    "contradictions": [],
+    "effects": [
+      {
+        "type": "speed_add",
+        "amount": -4,
+        "min": 1
+      }
+    ],
+    "flags": {
+      "dispellable": true,
+      "unique": false
+    }
+  },
+  {
+    "status_id": "st_exposed",
+    "name": "Exposed",
+    "duration_type": "turns",
+    "default_duration": 1,
+    "stacking": {
+      "mode": "refresh",
+      "cap": 1,
+      "refresh_rule": "refresh_duration"
+    },
+    "contradictions": [],
+    "effects": [
+      {
+        "type": "incoming_damage_mult",
+        "mult": 1.2
+      }
+    ],
+    "flags": {
+      "dispellable": true,
+      "unique": false
+    }
+  },
+  {
+    "status_id": "st_weakened",
+    "name": "Weakened",
+    "duration_type": "turns",
+    "default_duration": 2,
+    "stacking": {
+      "mode": "refresh",
+      "cap": 1,
+      "refresh_rule": "refresh_duration"
+    },
+    "contradictions": [],
+    "effects": [
+      {
+        "type": "atk_add",
+        "amount": -4,
+        "min": 1
+      }
+    ],
+    "flags": {
+      "dispellable": true,
+      "unique": false
+    }
+  }
+]

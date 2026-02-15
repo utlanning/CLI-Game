@@ -1,0 +1,39 @@
+[
+  {
+    "enemy_palette_id": "pal_v0_mixed_1_4",
+    "entries": [
+      { "enemy_template_id": "en_river_crab_01", "weight": 6 },
+      { "enemy_template_id": "en_juvenile_hellbender_01", "weight": 4 },
+      { "enemy_template_id": "en_tiny_pteronura_01", "weight": 3 },
+      { "enemy_template_id": "en_terrapinnikin_1000_01", "weight": 3 },
+
+      { "enemy_template_id": "en_kelpie_praestigii_01", "weight": 2 },
+      { "enemy_template_id": "en_hellbender_ambusher_01", "weight": 2 },
+
+      { "enemy_template_id": "en_baby_cownose_01", "weight": 2 },
+      { "enemy_template_id": "en_nascent_backahast_01", "weight": 2 },
+
+      { "enemy_template_id": "en_backahast_aetherii_01", "weight": 1 }
+    ]
+  },
+  {
+    "enemy_palette_id": "pal_v0_status_1_4",
+    "entries": [
+      { "enemy_template_id": "en_tiny_pteronura_01", "weight": 5 },
+      { "enemy_template_id": "en_hellbender_ambusher_01", "weight": 4 },
+      { "enemy_template_id": "en_kelpie_praestigii_01", "weight": 3 },
+      { "enemy_template_id": "en_juvenile_hellbender_01", "weight": 3 },
+      { "enemy_template_id": "en_river_crab_01", "weight": 2 }
+    ]
+  },
+  {
+    "enemy_palette_id": "pal_v0_elements_1_4",
+    "entries": [
+      { "enemy_template_id": "en_backahast_aetherii_01", "weight": 4 },
+      { "enemy_template_id": "en_nascent_backahast_01", "weight": 4 },
+      { "enemy_template_id": "en_baby_cownose_01", "weight": 4 },
+      { "enemy_template_id": "en_kelpie_praestigii_01", "weight": 3 },
+      { "enemy_template_id": "en_river_crab_01", "weight": 2 }
+    ]
+  }
+]

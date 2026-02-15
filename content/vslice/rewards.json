@@ -1,0 +1,17 @@
+[
+  {
+    "reward_table_id": "rw_v0_basic_01",
+    "rewards": [
+      {
+        "type": "gold",
+        "min": 25,
+        "max": 40
+      },
+      {
+        "type": "item_stub",
+        "id": "it_v0_placeholder_01",
+        "rolls": 1
+      }
+    ]
+  }
+]
