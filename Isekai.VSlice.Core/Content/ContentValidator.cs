@@ -32,8 +32,7 @@ public static class ContentValidator
         // Ability -> status references
         foreach (var ab in pack.Abilities)
         {
-            bool isFreeAction = string.Equals(ab.Resolution.Utility?.Kind, "free_step", StringComparison.OrdinalIgnoreCase)
-                                || ab.AbilityId.Contains("cantrip", StringComparison.OrdinalIgnoreCase);
+            bool isFreeAction = string.Equals(ab.Resolution.Utility?.Kind, "free_step", StringComparison.OrdinalIgnoreCase);
 
             if (isFreeAction)
             {

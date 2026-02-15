@@ -61,28 +61,44 @@ public class UnitTest1
         Assert.Contains(primaryErrors, e => e.Contains("ab_bad_primary") && e.Contains("ct_cost >= 1"));
         Assert.Contains(freeErrors, e => e.Contains("ab_bad_free") && e.Contains("ct_cost == 0"));
         Assert.True(TurnEngine.MoveCostPerTile >= 1);
+    }
 
-        // Cantrip/free action is slot-locked to 1 use per turn.
-        var freeAttack = AttackAbility("ab_free_hit", ctCost: 0);
-        var content = BuildPack([freeAttack]);
+    [Fact]
+    public void FreeAction_IsSlotLockedToOneUsePerTurn_Deterministic()
+    {
+        var freeStatus = TestStatus("st_test_mark");
+        var freeAbility = FreeCantripStatusAbility("ab_cantrip_mark", "st_test_mark");
+        var content = BuildPack([freeAbility], [freeStatus]);
+
+        var actor = NewActor("pc_0", "player", [freeAbility.AbilityId], ct: 100, ctBank: 0, hp: 100, x: 0, y: 0);
         var state = new BattleState
         {
             Content = content,
             Map = OpenMap(),
-            Actors =
-            [
-                NewActor("pc_0", "player", ["ab_free_hit"], ct: 100, ctBank: 0, hp: 100, x: 0, y: 0),
-                NewActor("en_0", "enemy", ["ab_free_hit"], ct: 0, ctBank: 0, hp: 100, x: 1, y: 0)
-            ],
+            Actors = [actor],
             Rng = new Random(123),
             Log = new BattleLog()
         };
 
-        BattleRunner.RunAuto(state, maxRounds: 1);
+        int budget = 100;
+        bool usedFreeAction = false;
 
-        // Free attack deals 14 once (10 base + atk 10 * 0.5 - def 1).
-        var enemy = state.Actors.Single(a => a.InstanceId == "en_0");
-        Assert.Equal(86, enemy.Hp);
+        bool firstUseAllowed = TurnEngine.TrySpendAbilityBudget(freeAbility, ref budget, ref usedFreeAction);
+        if (firstUseAllowed)
+            Resolver.ExecuteAbility(state, actor, freeAbility, actor);
+
+        bool secondUseAllowed = TurnEngine.TrySpendAbilityBudget(freeAbility, ref budget, ref usedFreeAction);
+        if (secondUseAllowed)
+            Resolver.ExecuteAbility(state, actor, freeAbility, actor);
+
+        Assert.True(firstUseAllowed);
+        Assert.False(secondUseAllowed);
+        Assert.Equal(100, budget);
+
+        var mark = actor.GetStatus("st_test_mark");
+        Assert.NotNull(mark);
+        Assert.Equal(1, mark!.Stacks);
+        Assert.Equal(1, actor.Statuses.Count(s => s.Template.StatusId == "st_test_mark"));
     }
 
     [Fact]
@@ -98,7 +114,7 @@ public class UnitTest1
         Assert.True(budget < 60);
     }
 
-    private static ContentPack BuildPack(IReadOnlyList<AbilityTemplateDto> abilities)
+    private static ContentPack BuildPack(IReadOnlyList<AbilityTemplateDto> abilities, IReadOnlyList<StatusTemplateDto>? statuses = null)
     {
         var actorPc = NewTemplate("pc", "player", abilities.Select(a => a.AbilityId).ToList());
         var actorEnemy = NewTemplate("enemy", "enemy", abilities.Select(a => a.AbilityId).ToList());
@@ -118,24 +134,27 @@ public class UnitTest1
             Entries = [new EnemyPaletteEntryDto { EnemyTemplateId = actorEnemy.ActorTemplateId, Weight = 1 }]
         };
 
+        var statusList = statuses ?? [];
+        var reward = new RewardTableDto { RewardTableId = "r1", Rewards = [] };
+
         return new ContentPack
         {
             ActorsPc = [actorPc],
             ActorsEnemy = [actorEnemy],
             Abilities = abilities,
-            Statuses = [],
+            Statuses = statusList,
             Maps = [map],
             Encounters = [encounter],
             Palettes = [palette],
-            Rewards = [new RewardTableDto { RewardTableId = "r1", Rewards = [] }],
+            Rewards = [reward],
             PcById = new Dictionary<string, ActorTemplateDto> { [actorPc.ActorTemplateId] = actorPc },
             EnemyById = new Dictionary<string, ActorTemplateDto> { [actorEnemy.ActorTemplateId] = actorEnemy },
             AbilityById = abilities.ToDictionary(a => a.AbilityId, a => a),
-            StatusById = new Dictionary<string, StatusTemplateDto>(),
+            StatusById = statusList.ToDictionary(s => s.StatusId, s => s),
             MapById = new Dictionary<string, MapTemplateDto> { [map.MapId] = map },
             EncounterById = new Dictionary<string, EncounterTemplateDto> { [encounter.EncounterTemplateId] = encounter },
             PaletteById = new Dictionary<string, EnemyPaletteDto> { [palette.EnemyPaletteId] = palette },
-            RewardById = new Dictionary<string, RewardTableDto> { ["r1"] = new RewardTableDto { RewardTableId = "r1", Rewards = [] } }
+            RewardById = new Dictionary<string, RewardTableDto> { [reward.RewardTableId] = reward }
         };
     }
 
@@ -207,6 +226,33 @@ public class UnitTest1
             Type = "utility",
             Utility = new UtilityDto { Kind = "free_step", Tiles = 1 }
         }
+    };
+
+    private static AbilityTemplateDto FreeCantripStatusAbility(string id, string statusId) => new()
+    {
+        AbilityId = id,
+        Name = id,
+        CtCost = 0,
+        MpCost = 0,
+        Targeting = new TargetingDto { Mode = "self", Range = 0, RequiresLos = false },
+        Resolution = new ResolutionDto
+        {
+            Type = "utility",
+            Utility = new UtilityDto { Kind = "free_step", Tiles = 1 },
+            ApplyStatuses = [new ApplyStatusDto { StatusId = statusId, Duration = 1, Stacks = 1 }]
+        }
+    };
+
+    private static StatusTemplateDto TestStatus(string id) => new()
+    {
+        StatusId = id,
+        Name = id,
+        DurationType = "turns",
+        DefaultDuration = 1,
+        Stacking = new StackingDto { Mode = "refresh", Cap = 1, RefreshRule = "max" },
+        Contradictions = [],
+        Effects = [new StatusEffectDto { Type = "atk_add", Amount = 1 }],
+        Flags = new StatusFlagsDto { Dispellable = true, Unique = false }
     };
 
     private static MapTemplateDto OpenMap() => new()
