@@ -56,16 +56,22 @@ public static class BattleRunner
                 if (decision.HasAbility)
                 {
                     var ab = s.Content.AbilityById[decision.AbilityId!];
+                    bool isFreeAction = ab.CtCost == 0;
 
-                    if (!TurnEngine.TrySpendAbilityBudget(ab, ref budget, ref usedFreeAction))
+                    if (isFreeAction && usedFreeAction)
                     {
-                        if (TurnEngine.IsFreeActionAbility(ab) && usedFreeAction)
-                            s.Log.Add($"{actor.ColorTag} cannot use another free action this turn.");
+                        s.Log.Add($"{actor.ColorTag} cannot use another free action this turn.");
                     }
-                    else if (decision.Target is not null)
+                    else if ((isFreeAction || ab.CtCost <= budget) && decision.Target is not null)
                     {
                         s.Log.Add($"{actor.ColorTag} acts: {ab.AbilityId} -> {decision.Target.ColorTag}");
                         Resolver.ExecuteAbility(s, actor, ab, decision.Target);
+
+                        if (isFreeAction)
+                            usedFreeAction = true;
+                        else
+                            budget -= ab.CtCost;
+
                         didSomething = true;
                     }
                 }

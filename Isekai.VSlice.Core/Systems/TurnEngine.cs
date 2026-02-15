@@ -85,30 +85,4 @@ public static class TurnEngine
 
     private static double ClampCt(double ct) => Math.Clamp(ct, 0, CtCap);
 
-    public static bool TrySpendAbilityBudget(AbilityTemplateDto ability, ref int remainingBudget, ref bool usedFreeAction)
-    {
-        if (IsFreeActionAbility(ability))
-        {
-            if (usedFreeAction)
-                return false;
-
-            usedFreeAction = true;
-            return true;
-        }
-
-        if (ability.CtCost < 1 || ability.CtCost > remainingBudget)
-            return false;
-
-        remainingBudget -= ability.CtCost;
-        return true;
-    }
-
-    public static bool IsFreeActionAbility(AbilityTemplateDto ability)
-    {
-        if (ability.CtCost != 0) return false;
-
-        return string.Equals(ability.Resolution.Utility?.Kind, "free_step", StringComparison.OrdinalIgnoreCase)
-               || ability.AbilityId.Contains("cantrip", StringComparison.OrdinalIgnoreCase);
-    }
-
 }
