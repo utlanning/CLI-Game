@@ -375,7 +375,7 @@
   {
     "ability_id": "ab_skirmish_step",
     "name": "Skirmish Step",
-    "ct_cost": 40,
+    "ct_cost": 0,
     "mp_cost": 0,
     "targeting": {
       "mode": "self",
