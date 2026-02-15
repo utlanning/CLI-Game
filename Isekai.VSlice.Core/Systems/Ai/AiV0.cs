@@ -142,17 +142,13 @@ public static class AiV0
         var (mx, my) = PathToward(s, self, primaryTarget.X, primaryTarget.Y, MoveRange);
         if (mx != self.X || my != self.Y)
         {
-            // Simulate position to check heal range from destination
-            int origX = self.X, origY = self.Y;
-            self.X = mx; self.Y = my;
-
             Decision? result = null;
             foreach (var heal in heals)
             {
                 foreach (var ally in hurtAllies)
                 {
                     if (IsHealAtFullHp(heal, ally)) continue;
-                    if (CanTargetWith(s, self, heal, ally))
+                    if (CanTargetWith(s, mx, my, heal, ally))
                     {
                         result = Decision.MoveAndAct(mx, my, heal.AbilityId, ally);
                         break;
@@ -160,8 +156,6 @@ public static class AiV0
                 }
                 if (result is not null) break;
             }
-
-            self.X = origX; self.Y = origY;
             if (result is not null) return result;
         }
 
@@ -234,12 +228,8 @@ public static class AiV0
         // If we can't move at all, nothing to do here
         if (mx == self.X && my == self.Y) return null;
 
-        // Simulate being at the new position and re-evaluate offensive abilities
-        int origX = self.X, origY = self.Y;
-        self.X = mx; self.Y = my;
-
         Decision? result = null;
-        bool hasOffenseAfterMove = HasAnyOffensiveActionNow(s, self, enemies);
+        bool hasOffenseAfterMove = HasAnyOffensiveActionNow(s, self, enemies, mx, my);
 
         foreach (var abId in self.Template.Abilities)
         {
@@ -261,15 +251,13 @@ public static class AiV0
                 if (IsRedundantSelfBuff(ab, self)) continue;
             }
 
-            var (ok, target) = FindTargetForAbility(s, self, ab, enemies);
+            var (ok, target) = FindTargetForAbility(s, self, ab, enemies, mx, my);
             if (ok && target is not null)
             {
                 result = Decision.MoveAndAct(mx, my, ab.AbilityId, target);
                 break;
             }
         }
-
-        self.X = origX; self.Y = origY;
 
         // If we found an ability to use after moving, return move+act
         if (result is not null) return result;
@@ -314,11 +302,14 @@ public static class AiV0
     /// Used by heal triage to test specific allies.
     /// </summary>
     private static bool CanTargetWith(BattleState s, ActorInstance self, AbilityTemplateDto ab, ActorInstance target)
+        => CanTargetWith(s, self.X, self.Y, ab, target);
+
+    private static bool CanTargetWith(BattleState s, int originX, int originY, AbilityTemplateDto ab, ActorInstance target)
     {
         if (!target.IsAlive) return false;
-        int dist = s.Manhattan(self, target);
+        int dist = s.Manhattan(originX, originY, target.X, target.Y);
         if (dist > ab.Targeting.Range) return false;
-        if (ab.Targeting.RequiresLos && !Systems.Los.HasLineOfSight(s, self.X, self.Y, target.X, target.Y))
+        if (ab.Targeting.RequiresLos && !Systems.Los.HasLineOfSight(s, originX, originY, target.X, target.Y))
             return false;
         return true;
     }
@@ -333,8 +324,13 @@ public static class AiV0
         BattleState s,
         ActorInstance self,
         AbilityTemplateDto ab,
-        List<ActorInstance> enemies)
+        List<ActorInstance> enemies,
+        int? originX = null,
+        int? originY = null)
     {
+        int ox = originX ?? self.X;
+        int oy = originY ?? self.Y;
+
         if (string.Equals(ab.Targeting.Mode, "self", StringComparison.OrdinalIgnoreCase))
         {
             if (IsHealAtFullHp(ab, self))
@@ -348,13 +344,13 @@ public static class AiV0
             : enemies;
 
         foreach (var c in candidates
-                     .OrderBy(c => s.Manhattan(self, c))
+                     .OrderBy(c => s.Manhattan(ox, oy, c.X, c.Y))
                      .ThenBy(c => c.InstanceId, StringComparer.Ordinal))
         {
-            int dist = s.Manhattan(self, c);
+            int dist = s.Manhattan(ox, oy, c.X, c.Y);
             if (dist > ab.Targeting.Range) continue;
 
-            if (ab.Targeting.RequiresLos && !Systems.Los.HasLineOfSight(s, self.X, self.Y, c.X, c.Y))
+            if (ab.Targeting.RequiresLos && !Systems.Los.HasLineOfSight(s, ox, oy, c.X, c.Y))
                 continue;
 
             if (wantsAlly && IsHealAtFullHp(ab, c))
@@ -446,7 +442,7 @@ public static class AiV0
         return !isHeal && (appliesStatus || isUtility);
     }
 
-    private static bool HasAnyOffensiveActionNow(BattleState s, ActorInstance self, List<ActorInstance> enemies)
+    private static bool HasAnyOffensiveActionNow(BattleState s, ActorInstance self, List<ActorInstance> enemies, int? originX = null, int? originY = null)
     {
         foreach (var abId in self.Template.Abilities)
         {
@@ -460,7 +456,7 @@ public static class AiV0
 
             if (!isOffensive) continue;
 
-            var (ok, tgt) = FindTargetForAbility(s, self, ab, enemies);
+            var (ok, tgt) = FindTargetForAbility(s, self, ab, enemies, originX, originY);
             if (ok && tgt is not null && tgt != self)
                 return true;
         }
