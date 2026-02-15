@@ -12,7 +12,8 @@ public sealed class ActorInstance
 
     public required int Hp { get; set; }
     public required int Mp { get; set; }
-    public required double Ct { get; set; } // 0..100+
+    public required double Ct { get; set; } // 0..160
+    public int CtBank { get; set; } = 0; // 0..60 carryover into next eligible turn
 
     public List<StatusInstance> Statuses { get; } = new();
 

@@ -32,6 +32,21 @@ public static class ContentValidator
         // Ability -> status references
         foreach (var ab in pack.Abilities)
         {
+            bool isFreeAction = string.Equals(ab.Resolution.Utility?.Kind, "free_step", StringComparison.OrdinalIgnoreCase);
+
+            if (isFreeAction)
+            {
+                if (ab.CtCost != 0)
+                    errors.Add($"abilities.json: free/cantrip ability '{ab.AbilityId}' must have ct_cost == 0.");
+            }
+            else if (ab.CtCost <= 0)
+            {
+                errors.Add($"abilities.json: primary ability '{ab.AbilityId}' must have ct_cost >= 1.");
+            }
+
+            if (ab.Resolution.Utility?.Kind?.Contains("refund", StringComparison.OrdinalIgnoreCase) == true)
+                errors.Add($"abilities.json: ability '{ab.AbilityId}' includes prohibited immediate CT refund utility '{ab.Resolution.Utility.Kind}'.");
+
             var list = ab.Resolution.ApplyStatuses;
             if (list is null) continue;
             foreach (var s in list)
